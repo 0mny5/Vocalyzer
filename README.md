@@ -64,3 +64,6 @@ README〜ER図: 8/27締め切り
 
 ■画面遷移図
 https://www.figma.com/file/Q8FMdiMuV5wbSd5W2Jh7jV/SongAnalyzer%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=11%3A114
+
+■ER図
+https://drive.google.com/file/d/1Hvgub2wISLcIGoDdv48CLrp4guIx55xB/view?usp=sharing
