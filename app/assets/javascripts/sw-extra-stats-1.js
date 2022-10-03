@@ -92,6 +92,9 @@
 		c.appendChild(b("note","Note",function(d){
 			return d.appendChild(document.createTextNode("-"))
 		}));
+		c.appendChild(b("volume","AvarageVolume",function(d){
+			return d.appendChild(document.createTextNode("-"))
+		}));
 		c.appendChild(b("chorus","Chorus segment",function(d){
 			return d.appendChild(document.createTextNode("-"))
 		}));
@@ -122,10 +125,10 @@
 			a.on("chordEnter",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .chord");
 				return c.textContent=d.chord.name});
-			a.on("chordEnter",function(d){
+			a.on("chordLeave",function(d){
 				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 				f=c.querySelector(".before-chord");
-				return f.textContent=" "});
+				return f.textContent=d.chord.name});
 			a.on("chordEnter",function(d){
 				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 				f=c.querySelector(".current-chord");
