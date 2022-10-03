@@ -1,0 +1,35 @@
+<%= form_with(model: project) do |f| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.fields_for :songs do |song| %>
+    <%= render 'song_fields', f: song %>
+    <div class="links">
+      <%= link_to_add_association 'add url', f, :songs %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= form_with url: song_searches_path, local: false do |f| %>
+  <%= f.label '検索ワード' %>
+  <%= f.text_field :word, id: 'js_search_word' %>
+  <span><%= f.submit '検索', id: 'js-song-search' %></span>
+<% end %>
