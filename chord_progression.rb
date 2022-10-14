@@ -1,4 +1,3 @@
-
 class EffectJudge
   def chord_effect
     scale = ["C", "C#", "D♭", "D", "D#", "E♭", "E", "F", "F#", "G♭", "G", "G#", "A♭", "A", "A#", "B♭", "B"]
@@ -14,7 +13,7 @@ class EffectJudge
   end
 end
 
+e = EffectJudge.new
 100.times do
-  e = EffectJudge.new
   puts e.chord_effect
 end

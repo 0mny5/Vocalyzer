@@ -11,7 +11,8 @@
  * This notice shall be included in all copies or substantial portions of this Songle Widget API Examples.
  * If you are interested in commercial use of Songle Widget API, please contact "songle-ml@aist.go.jp".
  */
-(function(){if(window.__swExtra__==null){
+(function(){
+	if(window.__swExtra__==null){
 	window.__swExtra__={}}
 
 	__swExtra__.initializeAllModule=function(a){
@@ -26,29 +27,43 @@
 
 	__swExtra__.initializeCreateModule=function(b,c){
 		var f,a,e,g,d;
-		if(c==null){c={}}if(c.force==null){c.force=false}g=__swExtra__.modules;
+		if(c==null){c={}}
+		if(c.force==null){c.force=false}
+		g=__swExtra__.modules;
 		d=[];
 		for(f=0,a=g.length;f<a;f++){e=g[f];
-			if(!e.__wasCreated__||c.force){e.onCreate&&e.onCreate(b)}d.push(e.__wasCreated__=true)}return d};
+			if(!e.__wasCreated__||c.force){e.onCreate&&e.onCreate(b)}
+			d.push(e.__wasCreated__=true)
+		}return d};
 
 	__swExtra__.initializeErrorModule=function(b,c){var f,a,e,g,d;
-		if(c==null){c={}}if(c.force==null){c.force=false}g=__swExtra__.modules;
+		if(c==null){c={}}
+		if(c.force==null){c.force=false}
+		g=__swExtra__.modules;
 		d=[];
 		for(f=0,a=g.length;f<a;f++){e=g[f];
 			if(!e.__wasErrored__||c.force){e.onError&&e.onError(b)}d.push(e.__wasErrored__=true)}return d};
 
-	__swExtra__.initializeReadyModule=function(b,c){var f,a,e,g,d;
-		if(c==null){c={}}if(c.force==null){c.force=false}g=__swExtra__.modules;
+	__swExtra__.initializeReadyModule=function(b,c){
+		var f,a,e,g,d;
+		if(c==null){c={}}
+		if(c.force==null){c.force=false}g=__swExtra__.modules;
 		d=[];
 		for(f=0,a=g.length;f<a;f++){e=g[f];
 			if(!e.__wasReadied__||c.force){e.onReady&&e.onReady(b)}d.push(e.__wasReadied__=true)}return d};
 
 	__swExtra__.random=function(b,a){
-		if(b==null){b=0}if(a==null){a=2147483647}return Math.floor(Math.random()*((a-b)+1)+b)}
+		if(b==null){b=0}
+		if(a==null){a=2147483647}
+		return Math.floor(Math.random()*((a-b)+1)+b)}
 }).call(this);
 
-(function(){__swExtra__.initializeAllModule({onCreate:function(a){
+(function(){
+	__swExtra__.initializeAllModule({onCreate:function(a){
 	var b;setTimeout(function(){
+		a.eventPollingInterval = 0.1;
+		a.beatEventPriority = 1;
+		a.chordEventPriority = 2;
 		var c;c=document.createElement("div");
 		c.className="sw-extra-stats-1";
 		c.style.position="relative";
@@ -79,15 +94,19 @@
 		}));
 		c.appendChild(b("chord-progression","ChordProgression",function(d){
 			var e;e=document.createElement("span");
-			e.className="before-chord";
+			e.className="current-chord";
 			e.textContent="-";
 			d.appendChild(e);
 			e=document.createElement("span");
 			e.textContent=" → ";
 			d.appendChild(e);
 			e=document.createElement("span");
-			e.className="current-chord";
+			e.className="next-chord";
 			e.textContent="-";
+			d.appendChild(e);
+			e=document.createElement("li");
+			e.className="chord-effect";
+			e.textContent=" ";
 			return d.appendChild(e)}));
 		c.appendChild(b("note","Note",function(d){
 			return d.appendChild(document.createTextNode("-"))
@@ -125,14 +144,39 @@
 			a.on("chordEnter",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .chord");
 				return c.textContent=d.chord.name});
-			a.on("chordLeave",function(d){
-				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
-				f=c.querySelector(".before-chord");
-				return f.textContent=d.chord.name});
+			// aにはsongle apiが入っている。
 			a.on("chordEnter",function(d){
 				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 				f=c.querySelector(".current-chord");
-				return f.textContent=d.chord.name});
+					return f.textContent=d.chord.name});
+			a.on("chordEnter",function(d){
+				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
+				f=c.querySelector(".next-chord");
+				return f.textContent=d.chord.next.name});
+
+			a.on("chordEnter",function(d){
+				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
+				f=document.querySelector(".chord-effect");
+				var onD = new RegExp("^D[^#♭]?7?[^/A-G]*[ →]{3}G[^#♭]?7?[^/A-G]*")
+				var onE = new RegExp("^E[^#♭]?7?[^/A-G]*[ →]{3}A[^#♭]?7?[^/A-G]*")
+				var onF = new RegExp("^F[^#♭]?7?[^/A-G]*[ →]{3}B♭[m]?7?[^/A-G]*")
+				var onG = new RegExp("^G[^#♭]?7?[^/A-G]*[ →]{3}C[^#♭]?7?[^/A-G]*")
+				var onA = new RegExp("^A[^#♭]?7?[^/A-G]*[ →]{3}D[^#♭]?7?[^/A-G]*")
+				if(c.innerText.match(onD)){
+				return f.textContent = "強進行"};
+				if(c.innerText.match(onE)){
+				return f.textContent = "強進行"};
+				if(c.innerText.match(onF)){
+				return f.textContent = "強進行"};
+				if(c.innerText.match(onG)){
+				return f.textContent = "強進行"};
+				if(c.innerText.match(onA)){
+				return f.textContent = "強進行"}});
+			a.on("chordLeave",function(d){
+				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
+				f=document.querySelector(".chord-effect")
+				return f.textContent = " "});
+
 			a.on("noteEnter",function(d){var c;c=document.querySelector(".sw-extra-stats-1 .note");
 				return c.textContent=d.note.pitch+" Hz"});
 			a.on("chorusSegmentEnter",function(d){
