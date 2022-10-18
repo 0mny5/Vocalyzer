@@ -65,7 +65,7 @@
 		a.beatEventPriority = 1;
 		a.chordEventPriority = 2;
 		var c;c=document.createElement("div");
-		c.className="sw-extra-stats-1";
+		c.className="sw-extra-stats-1 col-sm-6 col-lg-8";
 		c.style.position="relative";
 		c.style.display="inline-block";
 		c.style.float="left"
@@ -86,7 +86,7 @@
 			e.className="duration";
 			e.textContent="00:00";
 			return d.appendChild(e)}));
-		c.appendChild(b("beat","Beat",function(d){
+		c.appendChild(b("bpm","BPM",function(d){
 			return d.appendChild(document.createTextNode("-"))
 		}));
 		c.appendChild(b("chord","Chord",function(d){
@@ -120,7 +120,8 @@
 		c.appendChild(b("repeat","Repeat segment",function(d){
 			return d.appendChild(document.createTextNode("-"))
 		}));
-		return document.body.appendChild(c)},0);
+		var statsPosition = document.getElementById("analyzer-2")
+		return statsPosition.appendChild(c)},0);
 	return b=function(e,g,f){
 		var d,c;
 		c=document.createElement("div");
@@ -135,12 +136,9 @@
 		c.appendChild(d);f&&f(d);
 		return c}},onReady:function(a){
 			var b;a.on("beatPlay",function(d){
-				var c;c=document.querySelector(".sw-extra-stats-1 .beat");
+				var c;c=document.querySelector(".sw-extra-stats-1 .bpm");
 				switch(d.beat.position){
-					case 1:return c.textContent="x - - - (bpm:"+Math.floor(d.beat.bpm)+")";
-					case 2:return c.textContent="- x - - (bpm:"+Math.floor(d.beat.bpm)+")";
-					case 3:return c.textContent="- - x - (bpm:"+Math.floor(d.beat.bpm)+")";
-					case 4:return c.textContent="- - - x (bpm:"+Math.floor(d.beat.bpm)+")"}});
+					case 1:return c.textContent="bpm:"+Math.floor(d.beat.bpm)+""}});
 			a.on("chordEnter",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .chord");
 				return c.textContent=d.chord.name});
@@ -157,18 +155,27 @@
 			a.on("chordEnter",function(d){
 				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 				f=document.querySelector(".chord-effect");
-				var onD = new RegExp("^D[^#♭]?7?[ →]{3}G[^#♭]?7?")
-				var onE = new RegExp("^E[^#♭]?7?[ →]{3}A[^#♭]?7?")
-				var onG = new RegExp("^G[^#♭]?7?[ →]{3}C[^#♭]?7?")
-				var onA = new RegExp("^A[^#♭]?7?[ →]{3}D[^#♭]?7?")
+				var onCsharp = new RegExp("^C#[m]?7?[^/A-G]*[ →]{3}F#[m]?7?[^/A-G]*")
+				var onD = new RegExp("^D[^#♭]?7?[^/A-G]*[ →]{3}G[^#♭]?7?[^/A-G]*")
+				var onE = new RegExp("^E[^#♭]?7?[^/A-G]*[ →]{3}A[^#♭]?7?[^/A-G]*")
+				var onF = new RegExp("^F[^#♭]?7?[^/A-G]*[ →]{3}B♭[m]?7?[^/A-G]*")
+				var onG = new RegExp("^G[^#♭]?7?[^/A-G]*[ →]{3}C[^#♭]?7?[^/A-G]*")
+				var onA = new RegExp("^A[^#♭]?7?[^/A-G]*[ →]{3}D[^#♭]?7?[^/A-G]*")
+				var dim = new RegExp("^[A-G#♭]*dim7?[ →]{3}[A-G][#♭]?")
+				if(c.innerText.match(onCsharp)){
+				return f.textContent = "強進行"};
 				if(c.innerText.match(onD)){
 				return f.textContent = "強進行"};
 				if(c.innerText.match(onE)){
 				return f.textContent = "強進行"};
+				if(c.innerText.match(onF)){
+				return f.textContent = "強進行"};
 				if(c.innerText.match(onG)){
 				return f.textContent = "強進行"};
 				if(c.innerText.match(onA)){
-				return f.textContent = "強進行"}});
+				return f.textContent = "強進行"};
+				if(c.innerText.match(dim)){
+				return f.textContent = "増4度解決"}});
 			a.on("chordLeave",function(d){
 				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 				f=document.querySelector(".chord-effect")

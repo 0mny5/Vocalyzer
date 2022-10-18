@@ -8,23 +8,27 @@
 <p> urlを入力してね </p>
 
 <div>
-<%= form_with model: @song do |f| %>
-  <%= f.collection_select :id, Song.all, :id, :id %>
-  <%= f.submit 'コード取得' %>
-<% end %>
-<%= link_to new_project_path do %>
-<%= button_to '新規プロジェクト' %>
-<% end %>
-<%= link_to edit_project_path(@project) do %>
-<%= button_to 'プロジェクト編集' %>
-<% end %>
+  <%= form_with model: @song do |f| %>
+    <%= f.collection_select :id, Song.all, :id, :id %>
+    <%= f.submit 'コード取得' %>
+  <% end %>
+  <%= link_to new_project_path do %>
+    <%= button_to '新規プロジェクト' %>
+  <% end %>
+  <%= link_to edit_project_path(@project) do %>
+    <%= button_to 'プロジェクト編集' %>
+  <% end %>
 </div>
-<div class="api-container">
-  <div class="api-display" data-api="songle-widget-extra-module-1" data-url="<%= Song.first.url %>" id="songle-widget"></div>
-<script src="https://widget.songle.jp/v1/widgets.js"></script>
-<%= javascript_include_tag "sw-extra-stats-1.js" %>
-</div>
-
-<div class="api-display-2">
-<iframe src="<%= project_analyze_show_path(@project) %>" frameBorder="0" height="400px" width="700px">
+<div class="api-container container-md">
+  <div id="analyzer-1" class="col-sm-6 col-lg-8">
+    <%= javascript_include_tag "sw-extra-stats-1.js" %>
   </div>
+  <div class="col-6 col-lg-4" data-api="songle-widget-extra-module-1" data-url="<%= Song.first.url %>" id="songle-widget">
+  </div>
+  <script src="https://widget.songle.jp/v1/widgets.js"></script>
+  <div class="horizon container-fluid pt-4">
+  </div>
+  <div class="analyzer-2">
+    <iframe src="<%= project_analyze_show_path(@project) %>" frameBorder="0" height="400px" width="1240px">
+  </div>
+</div>

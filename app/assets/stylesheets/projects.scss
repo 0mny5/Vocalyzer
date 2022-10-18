@@ -6,9 +6,17 @@
 	display: inline-block;
 	float: right;
 }
+.separator{
+	margin: 10px;
+	border-bottom: solid 2px black;
+}
 .api-display-2{
 	top: 290px;
 }
+.horizon{
+	border-bottom: solid 2px black;
+}
+
 li {
 	list-style: none;
 }
@@ -16,5 +24,5 @@ iframe {
 	border: solid 2px #FFF;
 	position: relative;
 	overflow: hidden;
-	z-index: 110;
+	z-index: 500;
 }

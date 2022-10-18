@@ -1,5 +1,8 @@
 <div class="api-container">
-  <div class="api-display" data-api="songle-widget-extra-module-1" data-url="<%= Song.last.url %>" id="songle-widget"></div>
-<script src="https://widget.songle.jp/v1/widgets.js"></script>
-<%= javascript_include_tag "sw-extra-stats-2.js" %>
+  <div id="analyzer-2" class="col-sm-6 col-lg-8">
+    <%= javascript_include_tag "sw-extra-stats-2.js" %>
+  </div>
+  <div class="acol-6 col-lg-4" data-api="songle-widget-extra-module-1" data-url="<%= Song.last.url %>" id="songle-widget">
+  </div>
+  <script src="https://widget.songle.jp/v1/widgets.js"></script>
 </div>
