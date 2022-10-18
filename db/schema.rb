@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_17_125226) do
+ActiveRecord::Schema.define(version: 2022_10_18_085841) do
 
   create_table "chords", force: :cascade do |t|
     t.integer "index"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_09_17_125226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id", null: false
+    t.string "song_label", null: false
     t.index ["project_id"], name: "index_songs_on_project_id"
   end
 

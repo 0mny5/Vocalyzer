@@ -4,7 +4,7 @@ class Song < ApplicationRecord
   has_one :chord
   accepts_nested_attributes_for :chord
 
-  validates :url, uniqueness: true, presence: true
+  validates :url, presence: true
   # validate :analyze_cannot_be_less_than_one
 
   scope :by_project, ->(project_id) { where(project_id: project_id) }

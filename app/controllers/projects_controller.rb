@@ -24,6 +24,9 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    @project.songs.each.with_index(1) do |s, idx|
+      s.song_label = "Song#{idx}"
+    end
 
     respond_to do |format|
       if @project.save
@@ -74,5 +77,8 @@ class ProjectsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def project_params
     params.require(:project).permit(:title, songs_attributes: [:id, :url, :_destroy])
+  end
+
+  def song_labeling
   end
 end

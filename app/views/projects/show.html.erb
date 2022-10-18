@@ -9,7 +9,7 @@
 
 <div>
   <%= form_with model: @song do |f| %>
-    <%= f.collection_select :id, Song.all, :id, :id %>
+    <%= f.collection_select :id, Song.all, :id, :song_label %>
     <%= f.submit 'コード取得' %>
   <% end %>
   <%= link_to new_project_path do %>
