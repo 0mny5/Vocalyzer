@@ -1,5 +1,32 @@
 <div class="api-container">
-  <div id="analyzer-2" class="col-sm-6 col-lg-8">
+  <div class="sw-extra-stats-1 col-sm-6 col-lg-8 ms-4">
+    <div>
+      <div>Playing Time</div>
+      <div class="playing-time">
+        <span class="position">00:00</span>
+        <span>/</span>
+        <span class="duration">00:00</span>
+      </div>
+    </div>
+    <div>
+      <div>BPM</div>
+      <div class="bpm">-</div>
+    </div>
+    <div>
+      <div>Chord</div>
+      <div class="chord">-</div>
+    </div>
+    <div>
+      <div>ChordProgression</div>
+      <div class="chord-progression">
+        <span class="current-chord">-</span>
+        <span>→</span>
+        <span class="next-chord">-</span>
+        <div>ChordEffect:
+          <span class="chord-effect">-</span>
+        </div>
+      </div>
+    </div>
     <%= javascript_include_tag "sw-extra-stats-2.js" %>
   </div>
   <div class="acol-6 col-lg-4" data-api="songle-widget-extra-module-1" data-url="<%= Song.last.url %>" id="songle-widget">

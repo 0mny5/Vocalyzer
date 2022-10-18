@@ -64,7 +64,7 @@
 		a.eventPollingInterval = 0.1;
 		a.beatEventPriority = 1;
 		a.chordEventPriority = 2;
-		var c;c=document.createElement("div");
+		/* var c;c=document.createElement("div");
 		c.className="sw-extra-stats-1 col-sm-6 col-lg-8";
 		c.style.position="relative";
 		c.style.display="inline-block";
@@ -121,7 +121,7 @@
 			return d.appendChild(document.createTextNode("-"))
 		}));
 		var statsPosition = document.getElementById("analyzer-1")
-		return statsPosition.appendChild(c)},0);
+		return statsPosition.appendChild(c)*/},0);
 	return b=function(e,g,f){
 		var d,c;
 		c=document.createElement("div");
@@ -138,7 +138,7 @@
 			var b;a.on("beatPlay",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .bpm");
 				switch(d.beat.position){
-					case 1:return c.textContent="bpm:"+Math.floor(d.beat.bpm)+""}});
+					case 1:return c.textContent=""+Math.floor(d.beat.bpm)+""}});
 			a.on("chordEnter",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .chord");
 				return c.textContent=d.chord.name});
@@ -179,9 +179,9 @@
 			a.on("chordLeave",function(d){
 				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 				f=document.querySelector(".chord-effect")
-				return f.textContent = " "});
+				return f.textContent = "-"});
 
-			a.on("noteEnter",function(d){var c;c=document.querySelector(".sw-extra-stats-1 .note");
+			/* a.on("noteEnter",function(d){var c;c=document.querySelector(".sw-extra-stats-1 .note");
 				return c.textContent=d.note.pitch+" Hz"});
 			a.on("chorusSegmentEnter",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .chorus");
@@ -195,6 +195,7 @@
 			a.on("repeatSegmentLeave",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .repeat");
 				return c.textContent="-"});
+				*/
 			a.on("playingProgress",function(d){
 				var f,c;c=document.querySelector(".sw-extra-stats-1 .playing-time");
 				f=c.querySelector(".duration");
