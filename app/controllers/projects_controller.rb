@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @song = @project.songs.first
   end
 
   # GET /projects/new
@@ -27,6 +28,7 @@ class ProjectsController < ApplicationController
     @project.songs.each.with_index(1) do |s, idx|
       s.song_label = "Song#{idx}"
     end
+    current_project
 
     respond_to do |format|
       if @project.save
@@ -40,11 +42,6 @@ class ProjectsController < ApplicationController
   end
 
   # PATCH/PUT /projects/1 or /projects/1.json
-  def show
-    project_song = Song.by_project(@project)
-    @select_song = project_song.find_by(id: params[:id])
-  end
-
   def update
     respond_to do |format|
       byebug
@@ -77,8 +74,5 @@ class ProjectsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def project_params
     params.require(:project).permit(:title, songs_attributes: [:id, :url, :_destroy])
-  end
-
-  def song_labeling
   end
 end

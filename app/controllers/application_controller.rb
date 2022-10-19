@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   def current_project
-    byebug
-    @project = Project.find_by(id: params[:id])
+    session[:project_id] = Project.find_by(params[:id])
   end
 end

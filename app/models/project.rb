@@ -3,4 +3,5 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :songs, allow_destroy: true
 
   validates :title, presence: true
+
 end

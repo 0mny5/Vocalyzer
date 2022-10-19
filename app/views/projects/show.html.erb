@@ -1,63 +1,67 @@
 <p id="notice"><%= notice %></p>
+<div class="buttons">
+  <span class="new-project">
+    <%= link_to new_project_path do %>
+      <%= button_to '新規プロジェクト' %>
+    <% end %>
+  </span>
+  <span class="edit-project">
+    <%= link_to edit_project_path(@project) do %>
+      <%= button_to 'プロジェクト編集' %>
+    <% end %>
+  </span>
+</div>
 
 <p>
-<strong>Title:</strong>
+<strong>project:</strong>
 <%= @project.title %>
 </p>
 
-<p> urlを入力してね </p>
 
 <div>
-  <%= form_with model: @song do |f| %>
-    <%= f.collection_select :id, Song.all, :id, :song_label %>
-    <%= f.submit 'コード取得' %>
-  <% end %>
-  <%= link_to new_project_path do %>
-    <%= button_to '新規プロジェクト' %>
-  <% end %>
-  <%= link_to edit_project_path(@project) do %>
-    <%= button_to 'プロジェクト編集' %>
+  <%= form_with model: @song, url: song_select_path, id: "js-select-song", local: false do |f| %>
+    <%= f.collection_select :id, @project.songs, :id, :song_label %>
+    <%= f.submit 'セット' %>
   <% end %>
 </div>
 <div class="api-container container-md">
-  <div class="sw-extra-stats-1 col-sm-6 col-lg-8 ms-4">
-    <div>
-      <div>Playing Time</div>
-      <div class="playing-time">
-        <span class="position">00:00</span>
-        <span>/</span>
-        <span class="duration">00:00</span>
+  <div id="analyzer-1">
+    <div class="sw-extra-stats-1 col-sm-6 col-lg-8 ms-4">
+      <div>
+        <div>Playing Time</div>
+        <div class="playing-time">
+          <span class="position">00:00</span>
+          <span>/</span>
+          <span class="duration">00:00</span>
+        </div>
       </div>
-    </div>
-    <div>
-      <div>BPM</div>
-      <div class="bpm">-</div>
-    </div>
-    <div>
-      <div>Chord</div>
-      <div class="chord">-</div>
-    </div>
-    <div>
-      <div>ChordProgression</div>
-      <div class="chord-progression">
-        <span class="current-chord">-</span>
-        <span>→</span>
-        <span class="next-chord">-</span>
-        <div>ChordEffect:
-          <span class="chord-effect">-</span>
+      <div>
+        <div>BPM</div>
+        <div class="bpm">-</div>
+      </div>
+      <div>
+        <div>Chord</div>
+        <div class="chord">-</div>
+      </div>
+      <div>
+        <div>ChordProgression</div>
+        <div class="chord-progression">
+          <span class="current-chord">-</span>
+          <span>→</span>
+          <span class="next-chord">-</span>
+          <div>ChordEffect:
+            <span class="chord-effect">-</span>
+          </div>
         </div>
       </div>
     </div>
+    <%= javascript_include_tag "sw-extra-stats-1.js" %>
+    <div class="col-6 col-lg-4" data-api="songle-widget-extra-module-1" data-url="<%= @song.url %>" id="songle-widget">
+    </div>
+    <script src="https://widget.songle.jp/v1/widgets.js"></script>
   </div>
-  <%= javascript_include_tag "sw-extra-stats-1.js" %>
-</div>
-</div>
-<div class="col-6 col-lg-4" data-api="songle-widget-extra-module-1" data-url="<%= Song.first.url %>" id="songle-widget">
-</div>
-<script src="https://widget.songle.jp/v1/widgets.js"></script>
-<div class="horizon container-fluid pt-4">
-</div>
-<div class="analyzer-2">
+  <div class="horizon container-fluid pt-4">
+  </div>
+  <div class="analyzer-2">
   <iframe src="<%= project_analyze_show_path(@project) %>" frameBorder="0" height="400px" width="1240px">
-</div>
 </div>

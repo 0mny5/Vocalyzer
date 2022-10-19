@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'song_selects/show'
   get 'analyze/index'
   resources :songs
   resources :projects do
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
     get 'analyze/show'
   end
   resources :song_searches
+  resources :song_selects, only: %i[create update]
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

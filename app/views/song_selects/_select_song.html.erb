@@ -1,8 +1,4 @@
-  <%= form_with model: @song, url: song_selects_path, id: "js-select-song-2", local: false do |f| %>
-    <%= f.collection_select :id, @project.songs, :id, :song_label, selected: @song.song_label %>
-    <%= f.submit 'セット' %>
-  <% end %>
-<div class="api-container">
+<div id="analyzer-1">
   <div class="sw-extra-stats-1 col-sm-6 col-lg-8 ms-4">
     <div>
       <div>Playing Time</div>
@@ -31,9 +27,9 @@
         </div>
       </div>
     </div>
-    <%= javascript_include_tag "sw-extra-stats-2.js" %>
   </div>
-  <div class="acol-6 col-lg-4" data-api="songle-widget-extra-module-1" data-url="<%= @song.url %>" id="songle-widget">
+  <%= javascript_include_tag "sw-extra-stats-1.js" %>
+  <div class="col-6 col-lg-4" data-api="<%= song.song_label %>" data-url="<%= song.url %>" id="songle-widget">
   </div>
   <script src="https://widget.songle.jp/v1/widgets.js"></script>
 </div>
