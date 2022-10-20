@@ -1,5 +1,5 @@
   <%= form_with model: @song, url: song_selects_path, id: "js-select-song-2", local: false do |f| %>
-    <%= f.collection_select :id, @project.songs, :id, :song_label, selected: @song.song_label %>
+    <%= f.collection_select :id, @project.songs, :id, :song_label, selected: @song.id %>
     <%= f.submit 'セット' %>
   <% end %>
 <div class="api-container">
