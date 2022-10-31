@@ -5,6 +5,7 @@ class SongSelectsController < ApplicationController
   end
 
   def update
+    @song = Song.find(params[:song][:id])
   end
 
   private

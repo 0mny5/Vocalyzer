@@ -1,5 +1,6 @@
 class Song < ApplicationRecord
   SONGS_LOWER_LIMIT = 2
+  belongs_to :user
   belongs_to :project
   has_one :chord
   accepts_nested_attributes_for :chord

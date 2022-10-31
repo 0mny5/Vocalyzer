@@ -1,14 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="buttons">
   <span class="new-project">
-    <%= link_to new_project_path do %>
-      <%= button_to '新規プロジェクト' %>
-    <% end %>
+      <%= link_to '新規プロジェクト', new_project_path %>
   </span>
   <span class="edit-project">
-    <%= link_to edit_project_path(@project) do %>
-      <%= button_to 'プロジェクト編集' %>
-    <% end %>
+    <%= link_to 'プロジェクト編集', edit_project_path(@project) %>
   </span>
 </div>
 
@@ -17,9 +13,9 @@
 <%= @project.title %>
 </p>
 
-
+<%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
 <div>
-  <%= form_with model: @song, url: song_select_path, id: "js-select-song", local: false do |f| %>
+  <%= form_with model: @song, url: select_song_path, id: "js-select-song", local: false do |f| %>
     <%= f.collection_select :id, @project.songs, :id, :song_label %>
     <%= f.submit 'セット' %>
   <% end %>

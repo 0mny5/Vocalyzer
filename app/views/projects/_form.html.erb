@@ -28,7 +28,7 @@
   </div>
 <% end %>
 
-<%= form_with url: song_searches_path, local: false do |f| %>
+<%= form_with url: search_songs_path, local: false do |f| %>
   <%= f.label '検索ワード' %>
   <%= f.text_field :word, id: 'js_search_word' %>
   <span><%= f.submit '検索', id: 'js-song-search' %></span>

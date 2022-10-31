@@ -1,4 +1,4 @@
-  <%= form_with model: @song, url: song_selects_path, id: "js-select-song-2", local: false do |f| %>
+  <%= form_with model: @song, url: select_songs_path, id: "js-select-song-2", local: false do |f| %>
     <%= f.collection_select :id, @project.songs, :id, :song_label, selected: @song.id %>
     <%= f.submit 'セット' %>
   <% end %>

@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
+<% if session[:name] %>
+  <p><%= "#{session[:name]}さん、こんにちは" %></p>
+<% end %>
 
+<% if logged_in? %>
+  <%= link_to 'ログアウト', logout_path %>
+<% end %>
 <h1>Projects</h1>
 
 <table>
