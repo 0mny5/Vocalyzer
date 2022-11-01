@@ -1,10 +1,20 @@
 <p id="notice"><%= notice %></p>
-<% if session[:name] %>
-  <p><%= "#{session[:name]}さん、こんにちは" %></p>
+<th>
+  <td>
+<% if current_user %>
+  <p><%= "#{current_user.name}さん、こんにちは" %></p>
 <% end %>
+  </td>
+  <td>
+    <% if current_user.image.present? %>
+      <%= image_tag current_user.image, class: 'rounded-circle', size: '50x50' %>
+    <% end %>
+  </td>
+</th>
+
 
 <% if logged_in? %>
-  <%= link_to 'ログアウト', logout_path %>
+  <%= link_to 'ログアウト', logout_path, method: :delete %>
 <% end %>
 <h1>Projects</h1>
 
