@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   before_create :default_avatar
 
-  has_many :projects, dependent: :destroy
-  has_many :songs, dependent: :destroy
+  has_many :projects, inverse_of: :user, dependent: :destroy
 
   has_one_attached :avatar
 
@@ -14,12 +13,19 @@ class User < ApplicationRecord
     end
   end
 
-  def find_or_create_from_auth_hash(auth_hash)
-    find_or_create_by(uid: auth_hash.uid) do |user|
+  def self.find_or_create_from_auth_hash(auth_hash)
+    self.find_or_create_by(uid: auth_hash.uid) do |user|
       user.uid = auth_hash[:uid]
       user.name = auth_hash[:info][:name]
       user.image = auth_hash[:info][:image]
       user.role = :twitter
+    end
+  end
+
+  def user_associate(controller)
+    Project.transaction do
+      user = current_user.projects << @project
+      user.save!
     end
   end
 end

@@ -1,13 +1,15 @@
-class SongSearchesController < ApplicationController
+class SearchSongsController < ApplicationController
   def index
   end
 
   def create
-    results = song_query
     @results = {}
-    results.each do |r|
+
+    song_query.each do |r|
       @results.store(r['title'], r['url'])
     end
+    
+    @results
   end
 
   private

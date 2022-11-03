@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div class="buttons">
   <span class="new-project">
-      <%= link_to '新規プロジェクト', new_project_path %>
+    <% if current_user.twitter? %>
+      <%= link_to '新規プロジェクト', new_users_project_path %>
+    <% end %>
   </span>
   <span class="edit-project">
-    <%= link_to 'プロジェクト編集', edit_project_path(@project) %>
+    <%= link_to 'プロジェクト編集', edit_users_project_path(@project) %>
   </span>
 </div>
 
@@ -13,9 +15,9 @@
 <%= @project.title %>
 </p>
 
-<%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
+<%= link_to 'Twitter共有', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
 <div>
-  <%= form_with model: @song, url: select_song_path, id: "js-select-song", local: false do |f| %>
+  <%= form_with model: @song, url: select_songs_path, id: "js-select-song", local: false do |f| %>
     <%= f.collection_select :id, @project.songs, :id, :song_label %>
     <%= f.submit 'セット' %>
   <% end %>
@@ -59,5 +61,5 @@
   <div class="horizon container-fluid pt-4">
   </div>
   <div class="analyzer-2">
-  <iframe src="<%= project_analyze_show_path(@project) %>" frameBorder="0" height="400px" width="1240px">
+  <iframe src="<%= users_project_analyze_path(@song) %>" frameBorder="0" height="400px" width="1240px">
 </div>

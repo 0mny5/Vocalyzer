@@ -9,7 +9,7 @@ class Sessions::GuestSessionsController < Sessions::SessionController
     if guest_user
       log_in(guest_user)
       flash[:success] = "ゲストログインしました"
-      redirect_to projects_path
+      redirect_to new_users_project_path
     end
   end
 end

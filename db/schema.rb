@@ -40,23 +40,14 @@ ActiveRecord::Schema.define(version: 2022_10_31_144502) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "chords", force: :cascade do |t|
-    t.integer "index"
-    t.integer "start"
-    t.integer "duration"
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "song_id", null: false
-    t.index ["song_id"], name: "index_chords_on_song_id"
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "title"
+    t.string "uuid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
+    t.index ["uuid"], name: "index_projects_on_uuid"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -65,9 +56,7 @@ ActiveRecord::Schema.define(version: 2022_10_31_144502) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id", null: false
     t.string "song_label", null: false
-    t.integer "user_id", null: false
     t.index ["project_id"], name: "index_songs_on_project_id"
-    t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,8 +70,6 @@ ActiveRecord::Schema.define(version: 2022_10_31_144502) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chords", "songs"
   add_foreign_key "projects", "users"
   add_foreign_key "songs", "projects"
-  add_foreign_key "songs", "users"
 end

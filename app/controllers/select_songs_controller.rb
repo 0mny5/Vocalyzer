@@ -1,9 +1,4 @@
-class SongSelectsController < ApplicationController
-  before_action :set_song, only: %i[create update]
-
-  def create
-  end
-
+class SelectSongsController < ApplicationController
   def update
     @song = Song.find(params[:song][:id])
   end

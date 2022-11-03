@@ -1,7 +1,1 @@
-var searchBtn = document.getElementById("js-song-search");
-var resultSong = document.getElementById("js-search-result");
-  var resultField = document.querySelectorAll(".result-field")
-
-searchBtn.addEventListener("click", function result() {
-    this.insertAdjacentHTML("afterend", '<%= j(render('song_searches/result', result: @results))%>');
-});
+$("#search-field").delay(1000).html('<%= j(render('search_songs/result', result: @results))%>')

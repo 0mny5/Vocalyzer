@@ -1,0 +1,10 @@
+<th>
+  <td>
+    <% if current_user.image.present? %>
+      <%= image_tag current_user.image, class: 'rounded-circle', size: '30x30' %>
+    <% end %>
+    <p><%= "#{current_user.name}さん、こんにちは" %></p>
+  </td>
+</th>
+<%= link_to 'ログアウト', logout_path, method: :delete %>
+
