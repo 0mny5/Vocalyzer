@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   resources :search_songs, only: %i[create]
   resource :select_songs, only: %i[update]
+  resource :select_projects, only: %i[update]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,11 @@
+<td>
+  ユーザー名: <%= current_user.name %>
+</td>
+<td>
+  アイコン: <%= image_tag current_user.image %>
+</td>
+<td>
+  権限: <%= current_user.role %>
+</td>
+
+<%= link_to '戻る', users_projects_path(current_user) %>

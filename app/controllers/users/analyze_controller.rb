@@ -1,7 +1,8 @@
 class Users::AnalyzeController < ApplicationController
+  layout 'no_header'
 
   def show
-    @project = current_user.projects.find(params[:project_uuid])
+    @project = Project.find(params[:project_uuid])
     @song = @project.songs.second
   end
 

@@ -1,15 +1,3 @@
-<p id="notice"><%= notice %></p>
-<div class="buttons">
-  <span class="new-project">
-    <% if current_user.twitter? %>
-      <%= link_to '新規プロジェクト', new_users_project_path %>
-    <% end %>
-  </span>
-  <span class="edit-project">
-    <%= link_to 'プロジェクト編集', edit_users_project_path(@project) %>
-  </span>
-</div>
-
 <div id="select-project">
   <%= form_with model: @project, url: select_projects_path, id: 'js-select-project', local: false do |f| %>
     <span> Project: </span>
