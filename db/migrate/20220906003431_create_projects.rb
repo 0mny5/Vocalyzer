@@ -1,8 +1,8 @@
 class CreateProjects < ActiveRecord::Migration[6.1]
   def change
-    create_table :projects do |t|
+    create_table :projects, id: false do |t|
       t.string :title
-      t.string :uuid
+      t.string :uuid, primary_key: true
 
       t.timestamps
 

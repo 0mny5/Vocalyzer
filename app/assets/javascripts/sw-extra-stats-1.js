@@ -13,7 +13,7 @@
  */
 (function(){
 	if(window.__swExtra__==null){
-	window.__swExtra__={}}
+		window.__swExtra__={}}
 
 	__swExtra__.initializeAllModule=function(a){
 		if(__swExtra__.modules==null){__swExtra__.modules=[]}
@@ -60,11 +60,9 @@
 
 (function(){
 	__swExtra__.initializeAllModule({onCreate:function(a){
-	var b;setTimeout(function(){
-		a.eventPollingInterval = 0.1;
-		a.beatEventPriority = 1;
-		a.chordEventPriority = 2;
-		/* var c;c=document.createElement("div");
+		var b;setTimeout(function(){
+			a.eventPollingInterval = 0.1;
+			/* var c;c=document.createElement("div");
 		c.className="sw-extra-stats-1 col-sm-6 col-lg-8";
 		c.style.position="relative";
 		c.style.display="inline-block";
@@ -122,66 +120,60 @@
 		}));
 		var statsPosition = document.getElementById("analyzer-1")
 		return statsPosition.appendChild(c)*/},0);
-	return b=function(e,g,f){
-		var d,c;
-		c=document.createElement("div");
-		d=document.createElement("div");
-		d.appendChild(document.createTextNode(g));
-		d.style.padding="0px 4px";
-		d.style.borderLeft="2px solid #e17";
-		c.appendChild(d);d=document.createElement("div");
-		d.className=e;
-		d.style.padding="0px 4px";
-		d.style.borderLeft="0px solid #e17";
-		c.appendChild(d);f&&f(d);
-		return c}},onReady:function(a){
-			var b;a.on("beatPlay",function(d){
-				var c;c=document.querySelector(".sw-extra-stats-1 .bpm");
-				switch(d.beat.position){
-					case 1:return c.textContent=""+Math.floor(d.beat.bpm)+""}});
-			a.on("chordEnter",function(d){
-				var c;c=document.querySelector(".sw-extra-stats-1 .chord");
-				return c.textContent=d.chord.name});
-			// aにはsongle apiが入っている。
-			a.on("chordEnter",function(d){
-				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
-				f=c.querySelector(".current-chord");
+		return b=function(e,g,f){
+			var d,c;
+			c=document.createElement("div");
+			d=document.createElement("div");
+			d.appendChild(document.createTextNode(g));
+			d.style.padding="0px 4px";
+			d.style.borderLeft="2px solid #e17";
+			c.appendChild(d);d=document.createElement("div");
+			d.className=e;
+			d.style.padding="0px 4px";
+			d.style.borderLeft="0px solid #e17";
+			c.appendChild(d);f&&f(d);
+			return c}},onReady:function(a){
+				var b;a.on("beatPlay",function(d){
+					var c;c=document.querySelector(".sw-extra-stats-1 .bpm");
+					switch(d.beat.position){
+						case 1:return c.textContent=""+Math.floor(d.beat.bpm)+""}});
+				a.on("chordEnter",function(d){
+					var c;c=document.querySelector(".sw-extra-stats-1 .chord");
+					return c.textContent=d.chord.name});
+				// aにはsongle apiが入っている。
+				a.on("chordEnter",function(d){
+					var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
+					f=c.querySelector(".current-chord");
 					return f.textContent=d.chord.name});
-			a.on("chordEnter",function(d){
-				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
-				f=c.querySelector(".next-chord");
-				return f.textContent=d.chord.next.name});
+				a.on("chordEnter",function(d){
+					var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
+					f=c.querySelector(".next-chord");
+					return f.textContent=d.chord.next.name});
 
-			a.on("chordEnter",function(d){
-				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
-				f=document.querySelector(".chord-effect");
-				var onCsharp = new RegExp("^C#[m]?7?[^/A-G]*[ →]{3}F#[m]?7?[^/A-G]*")
-				var onD = new RegExp("^D[^#♭]?7?[^/A-G]*[ →]{3}G[^#♭]?7?[^/A-G]*")
-				var onE = new RegExp("^E[^#♭]?7?[^/A-G]*[ →]{3}A[^#♭]?7?[^/A-G]*")
-				var onF = new RegExp("^F[^#♭]?7?[^/A-G]*[ →]{3}B♭[m]?7?[^/A-G]*")
-				var onG = new RegExp("^G[^#♭]?7?[^/A-G]*[ →]{3}C[^#♭]?7?[^/A-G]*")
-				var onA = new RegExp("^A[^#♭]?7?[^/A-G]*[ →]{3}D[^#♭]?7?[^/A-G]*")
-				var dim = new RegExp("^[A-G#♭]*dim7?[ →]{3}[A-G][#♭]?")
-				if(c.innerText.match(onCsharp)){
-				return f.textContent = "強進行"};
-				if(c.innerText.match(onD)){
-				return f.textContent = "強進行"};
-				if(c.innerText.match(onE)){
-				return f.textContent = "強進行"};
-				if(c.innerText.match(onF)){
-				return f.textContent = "強進行"};
-				if(c.innerText.match(onG)){
-				return f.textContent = "強進行"};
-				if(c.innerText.match(onA)){
-				return f.textContent = "強進行"};
-				if(c.innerText.match(dim)){
-				return f.textContent = "増4度解決"}});
-			a.on("chordLeave",function(d){
-				var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
-				f=document.querySelector(".chord-effect")
-				return f.textContent = "-"});
+				"chordEnter pause".split(" ").forEach((eventName)=>{
+					a.on(eventName,function(d){
+						var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
+						f=document.querySelector(".chord-effect");
+						var onCsharp = new RegExp("^C#[m]?7?[^/A-G]*[ →]{3}F#[m]?7?[^/A-G]*")
+						var onD = new RegExp("^D[^#♭]?7?[^/A-G]*[ →]{3}G[^#♭]?7?[^/A-G]*")
+						var onE = new RegExp("^E[^#♭]?7?[^/A-G]*[ →]{3}A[^#♭]?7?[^/A-G]*")
+						var onF = new RegExp("^F[^#♭]?7?[^/A-G]*[ →]{3}B♭[m]?7?[^/A-G]*")
+						var onG = new RegExp("^G[^#♭]?7?[^/A-G]*[ →]{3}C[^#♭]?7?[^/A-G]*")
+						var onA = new RegExp("^A[^#♭]?7?[^/A-G]*[ →]{3}D[^#♭]?7?[^/A-G]*")
+						var dim = new RegExp("^[A-G#♭]*dim7?[ →]{3}[A-G][#♭]?")
+						array = [onCsharp, onD, onE, onF, onG, onA]
+						array.forEach((chordProgression)=>{
+						if(c.innerText.match(chordProgression)){
+							return f.textContent = "強進行"}});
+						if(c.innerText.match(dim)){
+							return f.textContent = "増4度解決"}})
+				});
+				a.on("chordLeave",function(d){
+					var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
+					f=document.querySelector(".chord-effect")
+					return f.textContent = "-"});
 
-			/* a.on("noteEnter",function(d){var c;c=document.querySelector(".sw-extra-stats-1 .note");
+				/* a.on("noteEnter",function(d){var c;c=document.querySelector(".sw-extra-stats-1 .note");
 				return c.textContent=d.note.pitch+" Hz"});
 			a.on("chorusSegmentEnter",function(d){
 				var c;c=document.querySelector(".sw-extra-stats-1 .chorus");
@@ -196,17 +188,17 @@
 				var c;c=document.querySelector(".sw-extra-stats-1 .repeat");
 				return c.textContent="-"});
 				*/
-			a.on("playingProgress",function(d){
-				var f,c;c=document.querySelector(".sw-extra-stats-1 .playing-time");
-				f=c.querySelector(".duration");
-				return f.textContent=b(a.duration)});
-			a.on("playingProgress",function(d){
-				var f,c;c=document.querySelector(".sw-extra-stats-1 .playing-time");
-				f=c.querySelector(".position");
-				return f.textContent=b(a.position)});
-			return b=function(d){
-				var c,e;
-				c="00"+Math.floor(d.minutes)%60;
-				e="00"+Math.floor(d.seconds)%60;
-				return c.substr(c.length-2)+":"+e.substr(e.length-2)
-			}}})}).call(this);
+				a.on("playingProgress",function(d){
+					var f,c;c=document.querySelector(".sw-extra-stats-1 .playing-time");
+					f=c.querySelector(".duration");
+					return f.textContent=b(a.duration)});
+				a.on("playingProgress",function(d){
+					var f,c;c=document.querySelector(".sw-extra-stats-1 .playing-time");
+					f=c.querySelector(".position");
+					return f.textContent=b(a.position)});
+				return b=function(d){
+					var c,e;
+					c="00"+Math.floor(d.minutes)%60;
+					e="00"+Math.floor(d.seconds)%60;
+					return c.substr(c.length-2)+":"+e.substr(e.length-2)
+				}}})}).call(this);

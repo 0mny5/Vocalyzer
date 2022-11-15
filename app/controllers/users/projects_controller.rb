@@ -37,8 +37,11 @@ class Users::ProjectsController < ApplicationController
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     @project.assign_attributes(project_params)
-    @project.songs.each.with_index(1) do |s, idx|
-      s.song_label = "Song#{idx}"
+    byebug
+    if project_params.is_a?
+      @project.songs.each.with_index(1) do |s, idx|
+        s.song_label = "Song#{idx}"
+      end
     end
 
     if @project.save!

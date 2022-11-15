@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_31_144502) do
+ActiveRecord::Schema.define(version: 2022_11_15_071027) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,9 +40,8 @@ ActiveRecord::Schema.define(version: 2022_10_31_144502) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "projects", force: :cascade do |t|
+  create_table "projects", primary_key: "uuid", id: :string, force: :cascade do |t|
     t.string "title"
-    t.string "uuid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
@@ -50,14 +49,8 @@ ActiveRecord::Schema.define(version: 2022_10_31_144502) do
     t.index ["uuid"], name: "index_projects_on_uuid"
   end
 
-  create_table "songs", force: :cascade do |t|
-    t.text "url", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "project_id", null: false
-    t.string "song_label", null: false
-    t.index ["project_id"], name: "index_songs_on_project_id"
-  end
+# Could not dump table "songs" because of following StandardError
+#   Unknown type 'uuid' for column 'project_id'
 
   create_table "users", force: :cascade do |t|
     t.string "uid"
@@ -71,5 +64,4 @@ ActiveRecord::Schema.define(version: 2022_10_31_144502) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "projects", "users"
-  add_foreign_key "songs", "projects"
 end

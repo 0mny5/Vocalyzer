@@ -23,5 +23,6 @@ module ApiExample
       g.helper false
       g.views false
     end
+
   end
 end

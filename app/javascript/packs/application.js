@@ -7,10 +7,11 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "jquery"
+import "bootstrap"
+import "../stylesheets/application"
 import "@nathanvda/cocoon"
-import 'bootstrap';
-import '../stylesheets/application';
-
+import "../src/capture.js"
+// import puppeteer from 'puppeteer'
 
 Rails.start()
 Turbolinks.start()

@@ -21,11 +21,4 @@ class User < ApplicationRecord
       user.role = :twitter
     end
   end
-
-  def user_associate(controller)
-    Project.transaction do
-      user = current_user.projects << @project
-      user.save!
-    end
-  end
 end

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     end
     resource :profile, only: %i[show edit update]
   end
-  resources :search_songs, only: %i[create]
+  resources :change_songs, only: %i[update]
+  resource :search_songs, only: %i[create]
   resource :select_songs, only: %i[update]
   resource :select_projects, only: %i[update]
 
