@@ -4,6 +4,7 @@ class Song < ApplicationRecord
 
   validates :url, presence: true
   # validate :analyze_cannot_be_less_than_one
+  validate :analyze_cannot_be_less_than_one
 
   scope :by_project, ->(project_id) { where(project_id: project_id) }
 
@@ -16,8 +17,8 @@ class Song < ApplicationRecord
   end
 
   def analyze_cannot_be_less_than_one
-    if project.songs.count < SONGS_LOWER_LIMIT
-      errors.add(:url, '少なくとも2曲以上の登録が必要です!')
+    unless project && (2..10).cover?(project.songs.size)
+      errors.add(:url, '楽曲は２〜１０曲の範囲で登録が可能です。')
     end
   end
 

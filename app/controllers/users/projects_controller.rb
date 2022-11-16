@@ -8,7 +8,7 @@ class Users::ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    @song = current_project.songs.first
+    @song = @project.songs.first
   end
 
   # GET /projects/new
@@ -37,11 +37,8 @@ class Users::ProjectsController < ApplicationController
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     @project.assign_attributes(project_params)
-    byebug
-    if project_params.is_a?
-      @project.songs.each.with_index(1) do |s, idx|
-        s.song_label = "Song#{idx}"
-      end
+    @project.songs.each.with_index(1) do |s, idx|
+      s.song_label = "Song#{idx}"
     end
 
     if @project.save!
@@ -55,7 +52,7 @@ class Users::ProjectsController < ApplicationController
   def destroy
     @project.destroy
 
-    redirect_to projects_url, notice: "Project was successfully destroyed."
+    redirect_to users_projects_url, notice: "Project was successfully destroyed."
   end
 
   private
@@ -66,6 +63,6 @@ class Users::ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:title, songs_attributes: [:id, :url, :_destroy])
+    params.require(:project).permit(:title, :song, songs_attributes: [:id, :url, :_destroy])
   end
 end

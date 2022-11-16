@@ -3,7 +3,11 @@ class Users::AnalyzeController < ApplicationController
 
   def show
     @project = Project.find(params[:project_uuid])
-    @song = @project.songs.second
+    if @song.blank?
+      @song = @project.songs.second
+    else
+    @song = @project.songs.find(params[:id])
+    end
   end
 
   private
