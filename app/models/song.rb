@@ -1,5 +1,4 @@
 class Song < ApplicationRecord
-  SONGS_LOWER_LIMIT = 2
   belongs_to :project
 
   validates :url, presence: true

@@ -11,6 +11,7 @@ import "bootstrap"
 import "../stylesheets/application"
 import "@nathanvda/cocoon"
 import "../src/capture.js"
+import "../src/cocoon_form_number.js"
 // import puppeteer from 'puppeteer'
 
 Rails.start()

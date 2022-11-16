@@ -3,9 +3,8 @@ class Sessions::GuestSessionsController < Sessions::SessionController
     guest_user = User.create!(
       uid: SecureRandom.hex(10),
       name: 'ゲスト',
-      image: 'guest_image.png'
     )
-
+    
     if guest_user
       log_in(guest_user)
       flash[:success] = "ゲストログインしました"
