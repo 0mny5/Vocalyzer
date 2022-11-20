@@ -1,7 +1,9 @@
 class SelectSongsController < ApplicationController
   def update
     @song = Song.find(params[:song][:id])
-    redirect_to users_project_path(@song.project.uuid)
+    @project = @song.project
+
+    render "users/projects/show", song: @song, project: @project
   end
 
   private

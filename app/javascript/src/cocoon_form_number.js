@@ -22,7 +22,7 @@ $(function() {
 	}
 
 	function check_to_hide_or_show_remove_link() {
-		if ($('#songs .nested-fields:visible').length <= 2) {
+		if ($('#songs .nested-fields:visible').length <= 3) {
 			$('#remove-song').hide();
 		} else {
 			$('#remove-song').show();

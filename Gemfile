@@ -32,6 +32,9 @@ gem 'cocoon'
 gem 'gon'
 gem 'mini_magick'
 gem 'dotenv-rails'
+gem 'ransack'
+
+# authenticate
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'

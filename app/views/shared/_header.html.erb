@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'SongAnalyzer', root_path, class: 'navbar-brand' %>
+<nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg bg-dark">
+  <%= link_to 'SongAnalyzer', root_path, class: 'navbar-brand text-white' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,7 +8,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
           <% if current_user.twitter? %>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           プロジェクト管理
         </a>
           <% end %>
@@ -18,7 +18,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar, class: 'rounded-circle', size: '30x30' %>
           <% end %>

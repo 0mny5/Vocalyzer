@@ -3,8 +3,14 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions/twitter_sessions#create'
   post '/guest_login', to: 'sessions/guest_sessions#create'
+  get '/admin', to: 'admin/users#new'
+  post '/admin_login', to: 'sessions/admin_sessions#create'
   delete '/logout', to: 'sessions/session#destroy'
+  delete '/admin_logout', to: 'sessions/admin_sessions#destroy'
 
+  namespace :admin do
+    resources :users
+  end
 
   namespace :users do
     resources :projects, param: :uuid do

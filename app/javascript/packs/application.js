@@ -8,10 +8,32 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "jquery"
 import "bootstrap"
-import "../stylesheets/application"
+import '@fortawesome/fontawesome-free/js/all'
 import "@nathanvda/cocoon"
+import "../stylesheets/application"
+import "../stylesheets/slick.css"
+import "../stylesheets/styles.css"
+
 import "../src/capture.js"
 import "../src/cocoon_form_number.js"
+
+// template 'Stream'
+import "../src/stream/global.js"
+import "../src/stream/top_animation.js"
+import '../src/stream/jquery.migrate.min.js'
+import '../src/stream/bootstrap.min.js'
+import '../src/stream/popper.min.js'
+import '../src/stream/typed.min.js'
+import '../src/stream/slick.min.js'
+import '../src/stream/waypoint.min.js'
+import '../src/stream/counterup.min.js'
+import '../src/stream/carousel.js'
+import '../src/stream/parallax.js'
+import '../src/stream/counters.js'
+import 'jquery-parallax.js'
+import 'typed.js'
+import 'slick-carousel'
+
 // import puppeteer from 'puppeteer'
 
 Rails.start()

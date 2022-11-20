@@ -1,0 +1,51 @@
+<div class="container">
+  <%= form_with model: [:admin, user] do |f| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row my-3">
+      <div class="col-3">
+        <%= f.label :name %>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :name, class: 'pilled-form-controler' %>
+      </div>
+    </div>
+
+    <div class="row my-3">
+      <div class="col-3">
+        <%= f.label :avatar %>
+      </div>
+      <div class="col-3">
+        <%= f.file_field :avatar, class: 'pilled-form-controler' %>
+      </div>
+    </div>
+
+    <div class="row my-3">
+      <div class="col-3">
+        <%= f.label :role %>
+      </div>
+      <div class="col-3">
+        <%= f.radio_button :role, 'guest' %>
+        <%= f.label :guest %>
+      </div>
+      <div class="col-3">
+        <%= f.radio_button :role, 'twitter' %>
+        <%= f.label :twitter %>
+      </div>
+    </div>
+
+    <div class="row my-3">
+      <%= f.submit '更新' %>
+    </div>
+  <% end %>
+</div>
