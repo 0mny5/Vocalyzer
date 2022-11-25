@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SongAnalyzer</title>
+    <title>Vocalyzer</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,6 +21,7 @@
   </header>
 
   <body class="bg-white py-5">
+    <%= render 'shared/modal' %>
     <%= yield %>
   </body>
 

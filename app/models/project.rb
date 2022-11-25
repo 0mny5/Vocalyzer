@@ -8,5 +8,4 @@ class Project < ApplicationRecord
   before_create -> { self.uuid = SecureRandom.uuid }
 
   validates :title, presence: true
-
 end

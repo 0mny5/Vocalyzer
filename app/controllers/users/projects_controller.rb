@@ -8,7 +8,7 @@ class Users::ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    @song = @project.songs.first
+    @song ||= @project.songs.first
   end
 
   # GET /projects/new

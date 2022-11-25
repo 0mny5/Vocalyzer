@@ -10,7 +10,7 @@ class User < ApplicationRecord
   def default_avatar
     if !avatar.attached?
       avatar.attach(
-        io: File.open(Rails.root.join('app', 'assets', 'images', 'guest_image.png')),
+        io: File.open(Rails.root.join('app', 'assets', 'images', 'guest_image_blue.png')),
         filename: 'guest_image.png',
         content_type: 'image/png'
       )

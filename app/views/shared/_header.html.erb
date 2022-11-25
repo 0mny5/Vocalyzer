@@ -1,5 +1,5 @@
 <nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg bg-dark">
-  <%= link_to 'SongAnalyzer', root_path, class: 'navbar-brand text-white' %>
+  <%= link_to 'Vocalyzer', root_path, class: 'navbar-brand text-white' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,7 +27,11 @@
           <h6 class="dropdown-header"><%= "#{current_user.name}さん" %></h6>
           <div class="dropdown-divider"></div>
             <%= link_to 'プロフィール', users_profile_path, class: 'dropdown-item' %>
+            <% if current_user.twitter? %>
             <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+          <% else %>
+            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
+          <% end %>
         </div>
       </li>
     </ul>

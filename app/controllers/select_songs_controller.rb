@@ -1,9 +1,10 @@
 class SelectSongsController < ApplicationController
-  def update
-    @song = Song.find(params[:song][:id])
-    @project = @song.project
 
-    render "users/projects/show", song: @song, project: @project
+  def select_song
+    @song_url = Song.find(params[:song_id]).url
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

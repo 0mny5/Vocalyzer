@@ -1,10 +1,13 @@
 class ChangeSongsController < ApplicationController
   def update
-    @song = Song.find(params[:id])
-    @project = @song.project
+    if params[:song][:currentid].present?
+    @song = Song.find(params[:song][:currentid])
+    else
+      @song = Song.find(params[:id])
+    end
 
     @song.update(song_params)
-    render "users/projects/show", song: @song, project: @project
+    redirect_to users_project_path(@song.project.uuid)
   end
 
   private
