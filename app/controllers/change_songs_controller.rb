@@ -1,7 +1,7 @@
 class ChangeSongsController < ApplicationController
   def update
     if params[:song][:currentid].present?
-    @song = Song.find(params[:song][:currentid])
+      @song = Song.find(params[:song][:currentid])
     else
       @song = Song.find(params[:id])
     end

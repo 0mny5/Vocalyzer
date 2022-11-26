@@ -33,6 +33,7 @@ gem 'gon'
 gem 'mini_magick'
 gem 'dotenv-rails'
 gem 'ransack'
+gem 'puppeteer-ruby'
 
 # authenticate
 gem 'omniauth'

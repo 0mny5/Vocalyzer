@@ -8,4 +8,16 @@ class Project < ApplicationRecord
   before_create -> { self.uuid = SecureRandom.uuid }
 
   validates :title, presence: true
+
+  def capture
+    Puppeteer.launch(headless: false) do |browser|
+      page = browser.new_page
+      page.goto(page.url(users_project_path(@project.uuid)))
+      page.wait_for_navigation do
+        page.click("#js-capture")
+      end
+      
+      page.screenshot(path: "/assets/images/capture_screen.png")
+    end
+  end
 end

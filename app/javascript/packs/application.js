@@ -31,7 +31,8 @@ import 'jquery-parallax.js'
 import 'typed.js'
 import 'slick-carousel'
 
-// import puppeteer from 'puppeteer'
+// puppeteer
+// import * as Puppeteer from 'puppeteer/lib'
 
 Rails.start()
 Turbolinks.start()

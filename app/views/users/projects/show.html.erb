@@ -10,11 +10,11 @@
   </div>
 </div>
 
-<div class="container">
   <% if current_user.twitter? %>
     <%= link_to 'Twitter共有', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank', id: "js-capture" %>
   <% end %>
 
+<div class="container">
   <div class="row">
     <div class="col-1 my-3">
       <%= form_with model: @song, url: select_songs_path do |f| %>
