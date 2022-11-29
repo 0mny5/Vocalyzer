@@ -1,5 +1,4 @@
 class SelectSongsController < ApplicationController
-
   def select_song
     @song_url = Song.find(params[:song_id]).url
     respond_to do |format|

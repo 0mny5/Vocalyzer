@@ -8,7 +8,12 @@ class Users::ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
-    @song ||= @project.songs.first
+    @song = @project.songs.find_by(selectstate_1: :true)
+    if @song.present?
+      @song
+    else 
+      @song = @project.songs.first
+    end
   end
 
   # GET /projects/new
@@ -37,9 +42,6 @@ class Users::ProjectsController < ApplicationController
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     @project.assign_attributes(project_params)
-    @project.songs.each.with_index(1) do |s, idx|
-      s.song_label = "Song#{idx}"
-    end
 
     if @project.save!
       redirect_to users_project_url(@project)
@@ -63,6 +65,6 @@ class Users::ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:title, songs_attributes: [:id, :url, :_destroy])
+    params.require(:project).permit(:title, songs_attributes: [:id, :url, :song_label, :_destroy], song: [:id])
   end
 end

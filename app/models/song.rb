@@ -6,6 +6,8 @@ class Song < ApplicationRecord
 
   scope :by_project, ->(project_id) { where(project_id: project_id) }
 
+  scope :recent_song, -> { order(updated_at: :desc).limit(1) }
+
   private
 
   def analyze_cannot_be_less_than_one

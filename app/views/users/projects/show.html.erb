@@ -11,21 +11,21 @@
 </div>
 
   <% if current_user.twitter? %>
-    <%= link_to 'Twitter共有', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank', id: "js-capture" %>
+    <%= link_to 'Twitter共有', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank', id: "js-capture", onclick: 'capture()' %>
   <% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-1 my-3">
       <%= form_with model: @song, url: select_songs_path do |f| %>
-        <%= f.collection_select :id, @project.songs, :id, :song_label, { selected: @song.id }, { :onchange => "selectSong($(this).val());" } %>
-    <% end %>
+        <%= f.collection_select :id, @project.songs, :id, :song_label, { selected: @song.id }, { onchange: "selectSong($(this).val());" } %>
+      <% end %>
     </div>
     <div class="col-8 my-3">
       <%= form_with model: @song, url: change_song_path(@song), id: "js-change-song" do |f| %>
         <%= f.hidden_field :currentid %>
-        <%= f.text_field :url, id: 'target', class: "col-10" %>
-        <%= f.submit '楽曲更新', class: 'mx-3' %>
+        <%= f.text_field :url, id: 'target', class: 'col-10' %>
+        <%= f.submit 'セット', class: 'mx-3' %>
       <% end %>
     </div>
   </div>
@@ -35,7 +35,7 @@
   <div id="analyzer-1">
     <div class="sw-extra-stats-1 col-4 d-inline-block">
       <%= render 'shared/song_stats', class: 'col-6 my-3' %>
-      <%= javascript_include_tag "sw-extra-stats-1.js" %>
+      <%= javascript_include_tag "sw-extra-stats-1.js", cache: false %>
     </div>
     <div class="songle-display col-6 float-right" data-api="songle-widget-extra-module-1" data-url="<%= @song.url %>" id="songle-widget">
     </div>
@@ -77,5 +77,10 @@
               song_id: song_id
             }
         })
+    }
+</script>
+
+<script>
+  function capture() {
     }
 </script>

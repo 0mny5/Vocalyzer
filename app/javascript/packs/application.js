@@ -3,7 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+import Turbolinks from 'turbolinks'
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "jquery"
@@ -14,7 +14,7 @@ import "../stylesheets/application"
 import "../stylesheets/slick.css"
 import "../stylesheets/styles.css"
 
-import "../src/capture.js"
+// import "../src/capture.js"
 import "../src/cocoon_form_number.js"
 import "../src/change_song.js"
 
@@ -32,7 +32,7 @@ import 'typed.js'
 import 'slick-carousel'
 
 // puppeteer
-// import * as Puppeteer from 'puppeteer/lib'
+// import * as Puppeteer from 'puppeteer'
 
 Rails.start()
 Turbolinks.start()

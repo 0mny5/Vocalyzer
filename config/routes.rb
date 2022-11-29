@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resource :search_songs, only: %i[create]
   resource :select_projects, only: %i[update]
   get '/select_songs', to: 'select_songs#select_song'
+  get '/select_another_songs', to: 'select_another_songs#select_another_song'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
