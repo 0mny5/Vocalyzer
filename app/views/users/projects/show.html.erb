@@ -25,7 +25,7 @@
       <%= form_with model: @song, url: change_song_path(@song), id: "js-change-song" do |f| %>
         <%= f.hidden_field :currentid %>
         <%= f.text_field :url, id: 'target', class: 'col-10' %>
-        <%= f.submit 'セット', class: 'mx-3' %>
+        <%= f.submit 'セット' %>
       <% end %>
     </div>
   </div>

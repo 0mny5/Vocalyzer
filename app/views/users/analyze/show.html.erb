@@ -1,18 +1,21 @@
 <div class="container mt-2">
-  <div class="m-3">
+  <div class="row">
+    <div class="col-1 my-3">
     <%= form_with model: @song, url: select_another_songs_path, id: "js-select-song-2" do |f| %>
         <%= f.collection_select :id, @project.songs, :id, :song_label, { selected: @song.id }, { onchange: "selectSong($(this).val());" } %>
     <% end %>
   </div>
-  <div class="mx-3 mb-2">
+  <div class="col-8 mx-3 my-3">
     <%= form_with model: @song, url: change_song_path(@song), id: "js-select-song" do |f| %>
         <%= f.hidden_field :another_currentid %>
       <%= f.text_field :url, id: 'target-2', class: 'col-10' %>
       <%= f.submit 'セット' %>
     <% end %>
   </div>
+  </div>
 
   <div id="analyzer-2">
+    <div class="row">
     <div class="sw-extra-stats-1 col-6 d-inline-block">
       <%= render 'shared/song_stats' %>
       <%= javascript_include_tag "sw-extra-stats-2.js" %>
@@ -20,6 +23,7 @@
     <div class="col-6 float-right" data-api="songle-widget-extra-module-2" data-url="<%= @song.url %>" id="songle-widget">
     </div>
     <script src="https://widget.songle.jp/v1/widgets.js"></script>
+  </div>
   </div>
 </div>
 

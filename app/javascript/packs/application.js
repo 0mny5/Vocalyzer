@@ -14,7 +14,7 @@ import "../stylesheets/application"
 import "../stylesheets/slick.css"
 import "../stylesheets/styles.css"
 
-// import "../src/capture.js"
+import "../src/capture.js"
 import "../src/cocoon_form_number.js"
 import "../src/change_song.js"
 
@@ -32,7 +32,6 @@ import 'typed.js'
 import 'slick-carousel'
 
 // puppeteer
-// import * as Puppeteer from 'puppeteer'
 
 Rails.start()
 Turbolinks.start()
