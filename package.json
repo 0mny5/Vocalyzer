@@ -1,0 +1,27 @@
+{
+  "name": "api-example",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
+    "@nathanvda/cocoon": "^1.2.14",
+    "@popperjs/core": "^2.11.6",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "5.4.3",
+    "bootstrap": "v4.5",
+    "jquery": "^3.6.1",
+    "jquery-parallax.js": "^1.5.0",
+    "popper.js": "^1.16.1",
+    "puppeteer": "18.1.0",
+    "slick-carousel": "^1.8.1",
+    "turbolinks": "^5.2.0",
+    "typed.js": "^2.0.12",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3"
+  }
+}
