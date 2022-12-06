@@ -1,35 +1,42 @@
 <div class="container">
-  <div class="row m-3">
-    <div class="col-lg-2">
-      ユーザー名:
-    </div>
-    <div class="col-lg-4">
-      <%= current_user.name %>
-    </div>
+  <div class="row justify-content-center m-3">
+    <h2>プロフィール</h2>
   </div>
-  <div class="row m-3">
-    <div class="col-lg-2">
-      アイコン:
+  <div class="container">
+    <div class="row justify-content-center my-3">
+      <div class="col-2">
+        ユーザー名 :
+      </div>
+      <div class="col-4">
+        <%= current_user.name %>
+      </div>
     </div>
-    <div class="col-lg-4">
-      <%= image_tag current_user.avatar, class: 'rounded-circle', size:'30x30' %>
+    <div class="row justify-content-center my-3">
+      <div class="col-2">
+        アイコン :
+      </div>
+      <div class="col-4">
+        <%= image_tag current_user.avatar, class: 'rounded-circle', size:'30x30' %>
+      </div>
     </div>
-  </div>
-  <div class="row m-3">
-    <div class="col-lg-2">
-      ログイン:
+    <div class="row justify-content-center my-3">
+      <div class="col-2">
+        ログイン :
+      </div>
+      <div class="col-4">
+        <%= current_user.role %>
+      </div>
     </div>
-    <div class="col-lg-4">
-      <%= current_user.role %>
+    <div class="row justify-content-center m-3">
+      <% if current_user.guest? %>
+        <%= link_to 'twitter連携', '/auth/twitter', class: 'btn btn-primary', method: :post %>
+      <% else %>
+        <%= link_to 'プロフィール編集', edit_users_profile_path, class: 'btn btn-secondary' %>
+      <% end %>
     </div>
-  </div>
-  <% if current_user.guest? %>
-    <div class="row m-3">
-      <%= link_to 'twitter連携', '/auth/twitter', class: 'btn btn-primary', method: :post %>
-    <% else %>
-      <%= link_to 'プロフィール編集', edit_users_profile_path, class: 'btn btn-secondary' %>
-    <% end %>
-    </div>
-</div>
 
-<%= link_to '戻る', users_projects_path(current_user) %>
+    <div class="row justify-content-center m-3">
+      <%= link_to '戻る', users_projects_path(current_user) %>
+    </div>
+  </div>
+</div>

@@ -162,17 +162,24 @@
 						var onA = new RegExp("^A[^#♭]?7?[^/A-G]*[ →]{3}D[^#♭]?7?[^/A-G]*")
 						var dim = new RegExp("^[A-G#♭]*dim7?[ →]{3}[A-G][#♭]?")
 						array = [onCsharp, onD, onE, onF, onG, onA]
-						array.forEach((chordProgression)=>{
-						if(c.innerText.match(chordProgression)){
-							return f.textContent = "強進行"}});
+						array.forEach((strongProgression)=>{
+						if(c.innerText.match(strongProgression)){
+							f.textContent = "強進行"
+						} else {
+							f.textContent = " - "
+						}});
+						array.forEach((dim)=>{
 						if(c.innerText.match(dim)){
-							return f.textContent = "増4度解決"}})
+							f.textContent = "増4度解決"
+						} else {
+							f.textContent = " - "
+						}});
 				});
-				a.on("chordLeave",function(d){
+				/* a.on("chordLeave",function(d){
 					var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 					f=document.querySelector(".chord-effect")
-					return f.textContent = "-"});
-
+					return f.textContent = "-"}); */
+					
 				/* a.on("noteEnter",function(d){var c;c=document.querySelector(".sw-extra-stats-1 .note");
 				return c.textContent=d.note.pitch+" Hz"});
 			a.on("chorusSegmentEnter",function(d){

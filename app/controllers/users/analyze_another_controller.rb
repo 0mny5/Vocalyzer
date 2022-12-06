@@ -1,13 +1,13 @@
-class Users::AnalyzeController < ApplicationController
+class Users::AnalyzeAnotherController < ApplicationController
   layout 'no_header'
   before_action :set_project, only: %i[show]
 
   def show
-    @song = @project.songs.find_by(selectstate_1: :true)
+    @song = @project.songs.find_by(selectstate_2: :true)
     if @song.present?
       @song
     else 
-      @song = @project.songs.first
+      @song = @project.songs.second
     end
   end
 
