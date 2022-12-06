@@ -1,37 +1,47 @@
-<%= form_with model: [:users, @project] do |f| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<div class="container">
+  <div class="container">
+    <%= form_with model: [:users, @project] do |f| %>
+      <% if project.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
-      <ul>
-        <% project.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <ul>
+            <% project.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field my-3">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div id="songs">
+        <%= f.fields_for :songs do |song| %>
+          <%= render 'song_fields', f: song %>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <div id="add-song" class="links">
+          <%= link_to_add_association 'add url', f, :songs, class: 'btn btn-link' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+      <div class="row justify-content-center m-3">
+      <%= f.submit %>
   </div>
-
-  <div id="songs">
-    <%= f.fields_for :songs do |song| %>
-      <%= render 'song_fields', f: song %>
     <% end %>
-    <div id="add-song" class="links">
-      <%= link_to_add_association 'add url', f, :songs %>
-    </div>
   </div>
 
-    <%= f.submit %>
-<% end %>
+  <div style="height: 10px;"></div>
+      <%= form_with url: search_songs_path, local: false do |f| %>
+        <%= f.label '検索ワード' %>
+        <%= f.text_field :word, id: 'js_search_word', class: 'form-control' %>
+        <span><%= f.submit '検索', id: 'js-song-search', class: 'my-3' %></span>
+      <% end %>
 
-<%= form_with url: search_songs_path, local: false do |f| %>
-  <%= f.label '検索ワード' %>
-  <%= f.text_field :word, id: 'js_search_word' %>
-  <span><%= f.submit '検索', id: 'js-song-search' %></span>
-<% end %>
-<div id="search-field">
+  <div class="container">
+    <div id="search-field" class="m-3">
+    </div>
+  </div>
 </div>

@@ -1,8 +1,10 @@
-<div class="result-field">
+<div class="container">
   <% result.each do |k, v| %>
-    <ul style="list-style: none;">
-      <li><%= k %></li>
-      <li><%= v %></li>
-    </ul>
+      <div class="row my-2">
+      <%= k %>
+      </div>
+      <div class="row mx-3 mb-3">
+      <%= v %>
+      </div>
   <% end %>
 </div>

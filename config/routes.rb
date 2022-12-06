@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :projects, param: :uuid do
       get 'analyze', to: 'analyze#show'
+      get 'analyze_another', to: 'analyze_another#show'
     end
     resource :profile, only: %i[show edit update]
   end

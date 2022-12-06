@@ -8,6 +8,15 @@ class Project < ApplicationRecord
   before_create -> { self.uuid = SecureRandom.uuid }
 
   validates :title, presence: true
+  validate :analyze_cannot_be_less_than_one, on: :create
+
+  private
+
+  def analyze_cannot_be_less_than_one
+    unless (2..10).cover?(songs.size)
+      errors.add(:url, '楽曲は２〜１０曲の範囲で登録が可能です。')
+    end
+  end
 
   def capture
     Puppeteer.launch(headless: false) do |browser|
