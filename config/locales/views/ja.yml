@@ -1,0 +1,47 @@
+ja:
+  defaults:
+    url: 'URL'
+    add_url: 'URL追加'
+    remove_url: 'URL削除'
+    set: 'セット'
+    search_word: '検索ワード'
+    search: '検索'
+    project_tasks: 'プロジェクト管理'
+    back: '戻る'
+    logout: 'ログアウト'
+    twitter_login: 'Twitterログイン'
+    guest_login: 'ゲストログイン'
+  users:
+    profiles:
+      edit:
+        title: 'プロフィール編集'
+      form:
+        submit: '更新'
+      show:
+        title: 'プロフィール'
+        twitter_login: 'Twitter連携'
+        edit: 'プロフィール編集'
+    projects:
+      destroy:
+        confirm: '本当に削除しますか？'
+      show:
+        title: 'プロジェクト'
+        twitter_share: 'Twitter共有'
+        set: 'セット'
+        appear_search_form: '検索フォームを表示'
+        search_word: '検索ワード'
+        search: '検索'
+      index:
+        title: 'プロジェクト一覧'
+        project: 'プロジェクト名'
+        no_project: 'まだプロジェクトがありません'
+        show: '分析ページ'
+        edit: '編集'
+        destroy: '削除'
+      new:
+        create: '新規プロジェクト'
+        title: 'タイトル'
+        name: 'プロジェクト作成'
+      form:
+        search: '検索'
+        search_word: '検索ワード'

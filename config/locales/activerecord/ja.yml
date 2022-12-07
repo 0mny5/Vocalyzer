@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      project: 'プロジェクト'
+      song: '楽曲'
+    attributes:
+      user:
+        name: 'ユーザー名'
+        avatar: 'アイコン'
+        login: 'ログイン'
+      project:
+        title: 'タイトル'
+  enums:
+    user:
+      role:
+        general: '一般'
+        twitter: 'Twitter'

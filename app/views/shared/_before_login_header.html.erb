@@ -1,17 +1,19 @@
 <nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg bg-dark">
-  <%= link_to 'Vocalyzer', root_path, class: 'navbar-brand text-white' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="container">
+    <%= link_to 'Vocalyzer', root_path, class: 'navbar-brand text-white' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse offset-lg-8" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to 'twitterログイン', '/auth/twitter', class: 'dropdown-item text-white', method: :post %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'ゲストログイン', guest_login_path, class: 'dropdown-item text-white', method: :post %>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse offset-lg-8" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to t('defaults.twitter_login'), '/auth/twitter', class: 'dropdown-item text-white', method: :post %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('defaults.guest_login'), guest_login_path, class: 'dropdown-item text-white', method: :post %>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

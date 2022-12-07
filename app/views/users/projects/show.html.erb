@@ -3,19 +3,19 @@
 <div class="container">
   <div id="select-project" class="row justify-content-center m-3">
     <%= form_with model: @project, url: select_projects_path, id: 'js-select-project' do |f| %>
-      <span> Project: </span>
+      <span><%= t('.title') %> :</span>
       <%= f.collection_select :id, current_user.projects, :id, :title %>
-      <%= f.submit 'セット', class: "btn-secondary" %>
+      <%= f.submit t('.set'), class: "btn btn-secondary mx-2" %>
     <% end %>
   </div>
 </div>
 
 <div class="container">
   <% if current_user.twitter? %>
-    <%= link_to 'Twitter共有', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank', id: "js-capture", onclick: 'capture()' %>
+    <%= link_to t('.twitter_share'), "https://twitter.com/share?url=#{request.url}", class: 'btn btn-links', title: 'Twitter', target: '_blank', id: "js-capture", onclick: 'capture()' %>
   <% end %>
 
-  <div class="container analyze-field">
+  <div class="analyze-field container">
     <div class="analyzer-1">
       <iframe src="<%= users_project_analyze_path(@project) %>" frameBorder="0" height="380px" width="1160px"></iframe>
     </div>
@@ -29,16 +29,12 @@
 
   <p class="m-3">
   <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    検索フォームを表示
+    <%= t('.appear_search_form') %>
   </a>
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
-      <%= form_with url: search_songs_path, local: false do |f| %>
-        <%= f.label '検索ワード' %>
-        <%= f.text_field :word, id: 'js_search_word' %>
-        <span><%= f.submit '検索', id: 'js-song-search' %></span>
-      <% end %>
+      <%= render 'search_field' %>
       <div id="search-field"></div>
     </div>
   </div>

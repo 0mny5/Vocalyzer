@@ -16,7 +16,6 @@ import "../stylesheets/styles.css"
 
 // import "../src/capture.js"
 import "../src/cocoon_form_number.js"
-import "../src/change_song.js"
 
 // template 'Stream'
 // import "../src/stream/global.js"

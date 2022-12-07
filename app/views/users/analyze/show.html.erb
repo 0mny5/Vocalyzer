@@ -9,7 +9,7 @@
       <%= form_with model: @song, url: change_song_path(@song), id: "js-select-song" do |f| %>
         <%= f.hidden_field :selectid %>
         <%= f.text_field :url, id: 'target', class: 'col-10' %>
-        <%= f.submit 'セット' %>
+        <%= f.submit t('defaults.set'), class: 'btn btn-primary mx-2' %>
       <% end %>
     </div>
   </div>

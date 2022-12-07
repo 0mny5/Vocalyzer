@@ -1,12 +1,12 @@
 <div class="nested-fields">
   <div class="row">
     <div class="col-1 my-3">
-      URL :
+      <%= t('defaults.url') %> :
     </div>
     <div class="col my-3">
       <%= f.text_field :url, class: 'form-control' %>
     </div>
     <div class="col-offset-1 my-3">
-  <span id="remove-song"><%= link_to_remove_association "remove url", f, class: 'btn btn-link' %></span>
+  <span id="remove-song"><%= link_to_remove_association t('defaults.remove_url'), f, class: 'btn btn-link' %></span>
 </div>
     </div>
