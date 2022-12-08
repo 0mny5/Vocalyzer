@@ -1,6 +1,11 @@
 <nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg bg-dark">
   <div class="container">
+    <% if current_user.guest? %>
+    <%= link_to 'Vocalyzer', users_projects_path, class: 'navbar-brand text-white' %>
+  <% else %>
+
     <%= link_to 'Vocalyzer', root_path, class: 'navbar-brand text-white' %>
+  <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

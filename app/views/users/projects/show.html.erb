@@ -10,10 +10,20 @@
   </div>
 </div>
 
+<div style="height: 10px;"></div>
+
 <div class="container">
-  <% if current_user.twitter? %>
-    <%= link_to t('.twitter_share'), "https://twitter.com/share?url=#{request.url}", class: 'btn btn-links', title: 'Twitter', target: '_blank', id: "js-capture", onclick: 'capture()' %>
-  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-1">
+        <% if current_user.twitter? %>
+          <%= link_to "https://twitter.com/share?url=#{ request.url }", target: '_blank', class: 'btn btn-secondary' do %>
+            <i class="fab fa-twitter mr-2" style='color: #3399FF;'></i><%= t('.twitter_share') %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
 
   <div class="analyze-field container">
     <div class="analyzer-1">
@@ -27,15 +37,20 @@
     </div>
   </div>
 
-  <p class="m-3">
-  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    <%= t('.appear_search_form') %>
-  </a>
-  </p>
-  <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-      <%= render 'search_field' %>
-      <div id="search-field"></div>
+  <div class="container">
+    <p class="m-3">
+    <a class="btn btn-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <%= t('.appear_search_form') %>
+    </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <%= render 'search_field' %>
+
+        <div class="container">
+          <div id="search-field" class="m-3"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
