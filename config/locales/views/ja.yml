@@ -11,6 +11,7 @@ ja:
     logout: 'ログアウト'
     twitter_login: 'Twitterログイン'
     guest_login: 'ゲストログイン'
+    login: 'ログイン'
   users:
     profiles:
       edit:
@@ -45,3 +46,15 @@ ja:
       form:
         search: '検索'
         search_word: '検索ワード'
+  admin:
+    users:
+      index:
+        id: 'ID'
+        name: 'ユーザー名'
+        avatar: 'アイコン'
+        role: '権限'
+        search: '検索'
+      edit:
+        title: 'ユーザー詳細'
+      form:
+        submit: '更新'

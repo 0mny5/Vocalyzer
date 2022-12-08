@@ -84,6 +84,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.11.0)
     faraday (2.6.0)
       faraday-net_http (>= 2.0, < 3.1)
@@ -291,6 +293,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   cocoon
   dotenv-rails
+  enum_help
   gon
   jbuilder (~> 2.7)
   jquery-rails

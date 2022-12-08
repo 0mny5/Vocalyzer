@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   root 'top#index'
 
-  get '/admin', to: 'admin/users#new'
+  get '/admin', to: 'admin/sessions#new'
   get '/auth/:provider/callback', to: 'sessions/twitter_sessions#create'
   post '/guest_login', to: 'sessions/guest_sessions#create'
-  post '/admin_login', to: 'sessions/admin_sessions#create'
+  post '/admin_login', to: 'admin/sessions#create'
   delete '/logout', to: 'sessions/guest_sessions#destroy'
   delete '/logout', to: 'sessions/twitter_sessions#destroy'
-  delete '/admin_logout', to: 'sessions/admin_sessions#destroy'
+  delete '/admin_logout', to: 'admin/sessions#destroy'
 
   namespace :admin do
     resources :users

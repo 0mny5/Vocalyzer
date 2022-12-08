@@ -25,6 +25,7 @@ gem 'mini_magick'
 gem 'puppeteer-ruby'
 gem 'ransack'
 gem 'rails-i18n', '~> 6.0'
+gem 'enum_help'
 
 # form
 gem 'cocoon'

@@ -4,15 +4,22 @@ ja:
       user: 'ユーザー'
       project: 'プロジェクト'
       song: '楽曲'
+      admin_user: 'アドミン'
     attributes:
+      admin_user:
+        name: 'ユーザー名'
+        password: 'パスワード'
       user:
         name: 'ユーザー名'
         avatar: 'アイコン'
         login: 'ログイン'
+        role: '権限'
+        guest: 'ゲスト'
+        twitter: 'Twitter'
       project:
         title: 'タイトル'
   enums:
     user:
       role:
-        general: '一般'
+        guest: 'ゲスト'
         twitter: 'Twitter'

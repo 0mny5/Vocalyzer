@@ -14,24 +14,26 @@
 
     <div class="row m-3">
       <div class="col-2">
-        <%= f.label :name %>:
+        <%= f.label AdminUser.human_attribute_name(:name) %> :
       </div>
-      <div class="col-8">
-        <%= f.text_field :name, class: 'pilled-form-control' %>
+      <div class="col">
+        <%= f.text_field :name, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row m-3">
       <div class="col-2">
-        <%= f.label :password %>:
+        <%= f.label AdminUser.human_attribute_name(:password) %> :
       </div>
-      <div class="col-8">
-        <%= f.password_field :password, class: 'pilled-form-control' %>
+      <div class="col">
+        <%= f.password_field :password, class: 'form-control' %>
       </div>
     </div>
 
+    <div style="height: 30px;"></div>
+
     <div class="row m-3 justify-content-center">
-    <%= f.submit 'ログイン' %>
+    <%= f.submit t('defaults.login'), class: 'btn btn-secondary' %>
     </div>
   <% end %>
 </div>

@@ -16,11 +16,15 @@
     <p id="notice"><%= notice %></p>
   </header>
 
+  <div style="height: 30px;"></div>
+
   <body class="bg-white py-5">
     <%= yield %>
   </body>
 
-  <footer>
+  <div style="height: 80px;"></div>
+
+  <footer class="fixed-bottom">
     <%= render 'shared/footer' %>
   </footer>
 </html>

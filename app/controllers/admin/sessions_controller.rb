@@ -1,4 +1,8 @@
-class Sessions::AdminSessionsController < ApplicationController
+class Admin::SessionsController < ApplicationController
+  def new
+    @admin = AdminUser.new
+  end
+
   def create
     admin = AdminUser.find_by(admin_params)
     if admin
