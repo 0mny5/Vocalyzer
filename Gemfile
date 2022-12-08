@@ -5,35 +5,36 @@ ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
-# Use sqlite3 as the database for Active Record
+
+# db
 gem 'sqlite3', '~> 1.4'
-# Use Puma as the app server
+
+# server
 gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
+
+# assets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
+# UI/UX
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'jquery-rails'
-gem 'cocoon'
-gem 'gon'
 gem 'mini_magick'
-gem 'dotenv-rails'
-gem 'ransack'
 gem 'puppeteer-ruby'
+gem 'ransack'
+gem 'rails-i18n', '~> 6.0'
+gem 'enum_help'
+
+# form
+gem 'cocoon'
+
+# JShelper
+gem 'gon'
+
+# config
+gem 'dotenv-rails'
 
 # authenticate
 gem 'omniauth'

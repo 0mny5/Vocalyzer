@@ -1,18 +1,24 @@
 <div class="container">
   <div class="row justify-content-center m-3">
-    <h1>Projects</h1>
+    <h2><%= t('.title') %></h2>
   </div>
+
+  <div style="height: 30px;"></div>
 
   <div class="container">
     <% if @projects.count.zero? %>
       <div class="row">
-        まだプロジェクトがありません
+        <%= t('.no_project') %>
       </div>
       <div class="row justify-content-center m-3">
-        <%= link_to '新規プロジェクト作成', new_users_project_path %>
+        <%= link_to t('.create'), new_users_project_path %>
       </div>
     <% else %>
-      <div class="row"> Title </div>
+      <div class="row">
+        <div class="col">
+          <%= t('.project') %>
+        </div>
+      </div>
     <% end %>
 
     <% @projects.each do |project| %>
@@ -20,14 +26,14 @@
         <div class="col my-3">
           <%= project.title %>
         </div>
-        <div class="col-1 my-3">
-          <%= link_to 'Show', users_project_path(project) %>
+        <div class="col-2 text-right my-3">
+          <%= link_to t('.show'), users_project_path(project) %>
+        </div>
+        <div class="col-2 text-center my-3">
+          <%= link_to t('.edit'), edit_users_project_path(project) %>
         </div>
         <div class="col-1 my-3">
-          <%= link_to 'Edit', edit_users_project_path(project) %>
-        </div>
-        <div class="col-1 my-3">
-          <%= link_to 'Destroy', users_project_path(project.uuid), data: { confirm: 'Are you sure?' }, method: :delete %>
+          <%= link_to t('.destroy'), users_project_path(project.uuid), data: { confirm: 'Are you sure?' }, method: :delete %>
         </div>
       </div>
     <% end %>

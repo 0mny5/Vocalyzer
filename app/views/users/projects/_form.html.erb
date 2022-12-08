@@ -23,23 +23,18 @@
           <%= render 'song_fields', f: song %>
         <% end %>
         <div id="add-song" class="links">
-          <%= link_to_add_association 'add url', f, :songs, class: 'btn btn-link' %>
+          <%= link_to_add_association t('defaults.add_url'), f, :songs, class: 'btn btn-link' %>
         </div>
       </div>
 
       <div class="row justify-content-center m-3">
-      <%= f.submit %>
-  </div>
+        <%= f.submit class: 'btn btn-secondary' %>
+      </div>
     <% end %>
   </div>
 
   <div style="height: 10px;"></div>
-      <%= form_with url: search_songs_path, local: false do |f| %>
-        <%= f.label '検索ワード' %>
-        <%= f.text_field :word, id: 'js_search_word', class: 'form-control' %>
-        <span><%= f.submit '検索', id: 'js-song-search', class: 'my-3' %></span>
-      <% end %>
-
+  <%= render 'search_field' %>
   <div class="container">
     <div id="search-field" class="m-3">
     </div>

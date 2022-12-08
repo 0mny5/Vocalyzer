@@ -1,11 +1,32 @@
 <div class="container">
   <%= search_form_for @q, url: admin_users_path do |f| %>
     <div class="row justify-content-center">
-      <div class="col-3">
+      <div class="col-6">
         <%= f.search_field :name_cont, class: 'form-control', placeholder: 'ユーザー名を入力してください' %>
       </div>
-      <%= f.submit '検索' %>
+      <%= f.submit t('.search'), class: 'btn btn-secondary' %>
     </div>
   <% end %>
 </div>
-<%= render @users %>
+
+<div style="height: 30px;"></div>
+
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-2 my-3">
+        <%= t('.id') %>
+      </div>
+      <div class="col-6 my-3">
+        <%= t('.name') %>
+      </div>
+      <div class="col-2 my-3">
+        <%= t('.avatar') %>
+      </div>
+      <div class="col-2 my-3">
+        <%= t('.role') %>
+      </div>
+    </div>
+  </div>
+  <%= render @users %>
+</div>

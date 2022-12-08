@@ -84,6 +84,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.11.0)
     faraday (2.6.0)
       faraday-net_http (>= 2.0, < 3.1)
@@ -201,6 +203,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
+    rails-i18n (6.0.0)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 7)
     railties (6.1.6.1)
       actionpack (= 6.1.6.1)
       activesupport (= 6.1.6.1)
@@ -288,6 +293,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   cocoon
   dotenv-rails
+  enum_help
   gon
   jbuilder (~> 2.7)
   jquery-rails
@@ -303,6 +309,7 @@ DEPENDENCIES
   puppeteer-ruby
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6)
+  rails-i18n (~> 6.0)
   ransack
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)

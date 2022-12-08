@@ -13,39 +13,39 @@
     <% end %>
 
     <div class="row my-3">
-      <div class="col-3">
+      <div class="col-2">
         <%= f.label :name %>
       </div>
-      <div class="col-3">
-        <%= f.text_field :name, class: 'pilled-form-controler' %>
+      <div class="col">
+        <%= f.text_field :name, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row my-3">
-      <div class="col-3">
+      <div class="col-2">
         <%= f.label :avatar %>
       </div>
-      <div class="col-3">
-        <%= f.file_field :avatar, class: 'pilled-form-controler' %>
+      <div class="col">
+        <%= f.file_field :avatar, class: 'form-control' %>
       </div>
     </div>
 
     <div class="row my-3">
-      <div class="col-3">
+      <div class="col-2">
         <%= f.label :role %>
       </div>
-      <div class="col-3">
-        <%= f.radio_button :role, 'guest' %>
+      <div class="col">
+        <%= f.radio_button :role, :guest %>
         <%= f.label :guest %>
       </div>
-      <div class="col-3">
-        <%= f.radio_button :role, 'twitter' %>
+      <div class="col">
+        <%= f.radio_button :role, :twitter %>
         <%= f.label :twitter %>
       </div>
     </div>
 
-    <div class="row my-3">
-      <%= f.submit '更新' %>
+    <div class="row justify-content-center my-3">
+      <%= f.submit t('.submit'), class: 'btn btn-secondary' %>
     </div>
   <% end %>
 </div>

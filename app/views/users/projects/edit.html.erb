@@ -1,13 +1,10 @@
 <div class="container">
   <div class="row justify-content-center m-3">
-<h1>Editing Project</h1>
-</div>
+    <h2><%= t('.title') %></h2>
+  </div>
+  <%= render 'form', project: @project %>
 
-<%= render 'form', project: @project %>
-
-  <div class="row justify-content-center m-3">
-<%= link_to 'Show', users_project_path(@project) %> | 
-<% if current_user.twitter? %>
-  <%= link_to 'Back', users_projects_path %>
-<% end %>
+  <div class="row justify-content-center my-3">
+      <%= link_to t('defaults.back'), request.referer %>
+  </div>
 </div>
