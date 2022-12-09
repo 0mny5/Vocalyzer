@@ -17,7 +17,6 @@ ja:
     profiles:
       edit:
         title: 'プロフィール編集'
-      form:
         submit: '更新'
       show:
         title: 'プロフィール'

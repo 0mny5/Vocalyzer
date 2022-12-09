@@ -1,7 +1,7 @@
 class Song < ApplicationRecord
   belongs_to :project
 
-  validates :url, presence: true, format: { with: /http[s]?:\/\/.+/, message: '不正なURLです!' }
+  validates :url, presence: true, format: { with: /\Ahttp[s]?:\/\/.+/, message: 'が不正です' }
 
   scope :by_project, ->(project_id) { where(project_id: project_id) }
 

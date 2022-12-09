@@ -18,6 +18,9 @@ ja:
         twitter: 'Twitter'
       project:
         title: 'タイトル'
+        song: '楽曲'
+      project/songs:
+        url: 'URL'
   enums:
     user:
       role:

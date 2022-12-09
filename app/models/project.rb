@@ -14,7 +14,7 @@ class Project < ApplicationRecord
 
   def analyze_cannot_be_less_than_two
     unless (2..10).cover?(songs.size)
-      errors.add(:url, '楽曲は２〜１０曲の範囲で登録が可能です。')
+      errors.add(:song, 'は２〜１０曲の範囲で登録が可能です')
     end
   end
 

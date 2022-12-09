@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   enum role: { guest: 0, twitter:1 }
 
+  validates :name, presence: true
+
   def default_avatar
     if !avatar.attached?
       avatar.attach(
