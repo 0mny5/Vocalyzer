@@ -22,7 +22,7 @@ class SearchSongsController < ApplicationController
     query = URI.encode_www_form(q: params[:word])
     url = "https://widget.songle.jp/api/v1/songs/search.json?#{query}"
     uri = URI.parse(url)
-    responce = Net::HTTP.get(uri)  # リクエストを送り、返り値をresponceに代入
+    responce = Net::HTTP.get(uri)
     JSON.parse(responce)
   end
 end

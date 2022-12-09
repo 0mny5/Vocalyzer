@@ -5,18 +5,21 @@ class Admin::SessionsController < ApplicationController
 
   def create
     admin = AdminUser.find_by(admin_params)
+
     if admin
-    session[:id] = admin.id
-      flash[:notice] = 'ログインしました'
+      session[:id] = admin.id
+
+      flash[:success] = t('defaults.login_message', role: "#{AdminUser.model_name.human}")
       redirect_to admin_users_path
     else
-      flash[:notice] = '失敗しました'
-    redirect_to admin_path
+      flash[:danger] = t('defaults.login_failed')
+      redirect_to admin_path
     end
   end
 
   def destroy
     admin_logout
+
     redirect_to root_path
   end
 

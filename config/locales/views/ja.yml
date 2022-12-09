@@ -6,13 +6,17 @@ ja:
     search_word: '検索ワード'
     search: '検索'
     project_tasks: 'プロジェクト管理'
-    logout: 'ログアウト'
     twitter_login: 'Twitterログイン'
     guest_login: 'ゲストログイン'
+    login_message: '%{role}ログインしました'
     login: 'ログイン'
+    login_failed: 'ログインに失敗しました'
+    logout: 'ログアウト'
+    logout_message: 'ログアウトしました'
     show: '分析ページへ'
     set: 'セット'
     back: '戻る'
+    admin_search: '%{name}を入力してください'
   users:
     profiles:
       edit:

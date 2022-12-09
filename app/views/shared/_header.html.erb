@@ -27,13 +27,13 @@
             <% end %>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <h6 class="dropdown-header"><%= "#{current_user.name}さん" %></h6>
+            <h6 class="dropdown-header text-center"><%= "#{current_user.name}さん" %></h6>
             <div class="dropdown-divider"></div>
-            <%= link_to t('users.profiles.show.title'), users_profile_path, class: 'dropdown-item' %>
+            <%= link_to t('users.profiles.show.title'), users_profile_path, class: 'dropdown-item text-center' %>
             <% if current_user.twitter? %>
-              <%= link_to t('defaults.logout'), logout_path, class: 'dropdown-item', method: :delete %>
+              <%= link_to t('defaults.logout'), logout_path, class: 'dropdown-item text-center', method: :delete %>
             <% else %>
-              <%= link_to t('defaults.logout'), logout_path, class: 'dropdown-item', method: :delete %>
+              <%= link_to t('defaults.logout'), logout_path, class: 'dropdown-item text-center', method: :delete %>
             <% end %>
           </div>
         </li>
