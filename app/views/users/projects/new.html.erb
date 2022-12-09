@@ -6,8 +6,6 @@
   <%= render 'form', project: @project %>
 
   <div class="row justify-content-center m-3">
-    <% unless current_user.guest? %>
       <%= link_to t('defaults.back'), request.referer, class: 'btn btn-links' %>
-    <% end %>
   </div>
 </div>
