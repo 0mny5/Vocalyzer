@@ -2,7 +2,7 @@
   <%= search_form_for @q, url: admin_users_path do |f| %>
     <div class="row justify-content-center">
       <div class="col-6">
-        <%= f.search_field :name_cont, class: 'form-control', placeholder: 'ユーザー名を入力してください' %>
+        <%= f.search_field :name_cont, class: 'form-control', placeholder: t('defaults.admin_search', name: "#{AdminUser.human_attribute_name(:name)}") %>
       </div>
       <%= f.submit t('.search'), class: 'btn btn-secondary' %>
     </div>

@@ -4,16 +4,18 @@ class Sessions::TwitterSessionsController < ApplicationController
     user = User.find_or_create_from_auth_hash(auth_params)
     if user
       log_in(user)
-      flash[:notice] = 'ログインしました'
+
+      flash[:success] = t('defaults.login_message', role: "#{User.human_attribute_name(:twitter)}")
     else
-      flash[:notice] = '失敗しました'
+      flash[:danger] = t('defaults.login_failed')
     end
+
     redirect_to users_projects_path
   end
 
   def destroy
     log_out if logged_in?
-    flash[:notice] = 'ログアウトしました'
+    flash[:success] = t('defaults.logout_message)')
     redirect_to root_path
   end
 

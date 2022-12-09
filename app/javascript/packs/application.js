@@ -11,8 +11,6 @@ import "bootstrap"
 import '@fortawesome/fontawesome-free/js/all'
 import "@nathanvda/cocoon"
 import "../stylesheets/application"
-import "../stylesheets/slick.css"
-import "../stylesheets/styles.css"
 
 // import "../src/capture.js"
 import "../src/cocoon_form_number.js"

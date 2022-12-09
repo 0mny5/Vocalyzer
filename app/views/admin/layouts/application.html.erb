@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SongAnalyzer</title>
+    <title>VocalyzerAdmin</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,10 +13,11 @@
 
   <header>
     <%= render 'admin/shared/header', admin: @admin %>
-    <p id="notice"><%= notice %></p>
   </header>
 
-  <div style="height: 30px;"></div>
+  <div style="height: 20px;"></div>
+  
+  <%= render 'shared/flash_message' %>
 
   <body class="bg-white py-5">
     <%= yield %>

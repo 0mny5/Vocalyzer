@@ -7,8 +7,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'slick', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="//fonts.googleapis.com/css?family=Playfair+Display:400,700%7COpen+Sans:300,400,700" rel="stylesheet">
   </head>
 
   <header>
@@ -17,10 +18,12 @@
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
-    <p id="notice"><%= notice %></p>
   </header>
 
-  <div style="height: 30px;"></div>
+  <div style="height: 20px;"></div>
+
+  <%= render 'shared/flash_message' %>
+
   <body class="bg-white py-5">
     <%= render 'shared/modal' %>
     <%= yield %>
