@@ -1,5 +1,5 @@
 <nav class="js-navbar-scroll navbar fixed-top navbar-expand-lg bg-dark">
-  <div class="container">
+  <div class="container-fluid">
     <%= link_to 'Vocalyzer', root_path, class: 'navbar-brand text-white' %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse offset-lg-8" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= t('defaults.project_tasks') %>
-            </a>
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= t('defaults.project_tasks') %>
+          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% if current_user.twitter? || current_user.projects.count.zero? %>
-            <%= link_to t('users.projects.new.create'), new_users_project_path, class: 'dropdown-item' %>
-          <% end %>
+            <% if current_user.twitter? || current_user.projects.count.zero? %>
+              <%= link_to t('users.projects.new.create'), new_users_project_path, class: 'dropdown-item' %>
+            <% end %>
             <%= link_to t('users.projects.index.title'), users_projects_path, class: 'dropdown-item' %>
           </div>
         </li>
@@ -40,4 +40,9 @@
       </ul>
     </div>
   </div>
+  <a class="btn btn-primary" data-toggle="modal" href="#callUsModal" href="#!">
+    <div class="text-nowrap">
+      <i class="fas fa-phone-square mr-1"></i><%= t('defaults.contact') %>
+    </div>
+  </a>
 </nav>

@@ -1,5 +1,5 @@
 <%= form_with url: search_songs_path, local: false do |f| %>
   <%= f.label t('defaults.search_word'), class: 'my-3' %>
-  <%= f.text_field :word, id: 'js_search_word', class: 'form-control' %>
+  <%= f.text_field :word, id: 'js_search_word', class: 'form-control', placeholder: t('defaults.song_search') %>
   <span><%= f.submit t('defaults.search'), id: 'js-song-search', class: 'btn btn-primary my-3' %></span>
 <% end %>

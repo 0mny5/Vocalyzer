@@ -2,7 +2,7 @@ $(document).on('ready', function () {
 	// initialization of text animation (typing)
 	$(".js-display-typing").typed({
 		strings: [
-			"Stream",
+			"Vocalyzer",
 			"Creative",
 			"Innovative"
 		],
