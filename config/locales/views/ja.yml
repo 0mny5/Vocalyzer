@@ -8,7 +8,7 @@ ja:
     project_tasks: 'プロジェクト管理'
     twitter_login: 'Twitterログイン'
     guest_login: 'ゲストログイン'
-    login_message: '%{role}ログインしました'
+    login_message: '%{role}でログインしました'
     login: 'ログイン'
     login_failed: 'ログインに失敗しました'
     logout: 'ログアウト'
@@ -17,6 +17,22 @@ ja:
     set: 'セット'
     back: '戻る'
     admin_search: '%{name}を入力してください'
+    contact: 'お問い合わせ'
+    author: '0mny5'
+    author_rights: '. All Rights Reserved'
+    song_search: 'ボーカロイド名や曲名を入力してください'
+  top:
+    index:
+      content: 'Vocalyzer とは？'
+      main: 'ようこそ。作曲支援ツールの新たな可能性へ・・・'
+      explain: 'Vocaloid楽曲を構成する様々な要素を比較検討できる、 楽曲比較・分析サービスです。'
+      idea: 'アイデア発想のお供に'
+      idea_explain: '参考楽曲のコードとその効果を表示をし、作曲をお手伝い。'
+      playing: '楽器を演奏する方にも'
+      playing_explain: 'コードの表示によって、演奏の練習をする方もお手伝いできます。'
+      songle: 'songle API'
+      songle_explain: 'songle APIによって、ボーカロイド楽曲を強力にサポート。'
+      learn_more: 'もっと見る'
   users:
     profiles:
       edit:

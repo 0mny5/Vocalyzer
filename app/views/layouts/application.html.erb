@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag('favicon.ico') %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'slick', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,14 +21,14 @@
     <% end %>
   </header>
 
-  <div style="height: 20px;"></div>
-
-  <%= render 'shared/flash_message' %>
+  <div style="height: 8px;"></div>
 
   <body class="bg-white py-5">
+    <%= render 'shared/flash_message' %>
     <%= render 'shared/modal' %>
     <%= yield %>
   </body>
+
   <div style="height: 80px;"></div>
 
   <footer id="footer" class="fixed-bottom">
