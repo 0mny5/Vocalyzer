@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   root 'top#index'
 
   get '/admin', to: 'admin/sessions#new'
@@ -22,6 +23,8 @@ Rails.application.routes.draw do
     end
     resource :profile, only: %i[show edit update]
   end
+
+  resources :contacts, only: %i[new, create]
   
   resources :change_songs, only: %i[update]
   resource :search_songs, only: %i[create]

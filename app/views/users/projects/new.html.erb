@@ -1,6 +1,7 @@
+<% content_for(:title, t('.title')) %>
 <div class="container">
   <div class="row justify-content-center m-3">
-    <h2><%= t('.name') %></h2>
+    <h2><%= t('.title') %></h2>
   </div>
 
   <%= render 'form', project: @project %>
