@@ -165,15 +165,14 @@
 						array.forEach((strongProgression)=>{
 						if(c.innerText.match(strongProgression)){
 							f.textContent = "強進行"
-						} else {
-							f.textContent = " - "
-						}});
+						}
+						});
 						array.forEach((dim)=>{
 						if(c.innerText.match(dim)){
 							f.textContent = "増4度解決"
-						} else {
-							f.textContent = " - "
-						}});
+						}
+						});
+					});
 				});
 				/* a.on("chordLeave",function(d){
 					var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
