@@ -39,13 +39,13 @@
       var val2 = $('#js-email-field').val()
       var val3 = $('#js-content-field').val()
       if(val1 === ''){
-          $('.js-error-messages').append('<p style="color: red;">お名前が未入力です</p>')
+          $('.js-error-messages').append('<li style="color: red;">お名前が未入力です</li>')
         }
       if(val2 === ''){
-          $('.js-error-messages').append('<p style="color: red;">メールアドレスが未入力です</p>')
+          $('.js-error-messages').append('<li style="color: red;">メールアドレスが未入力です</li>')
         }
       if(val3 === ''){
-          $('.js-error-messages').append('<p style="color: red;">お問い合わせ内容が未入力です</p>')
+          $('.js-error-messages').append('<li style="color: red;">お問い合わせ内容が未入力です</li>')
         }
       if(val1 != ''&&val2 != ''&&val3 != '') {
           $.ajax({

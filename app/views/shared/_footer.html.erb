@@ -7,6 +7,9 @@
 
       <div class="col-md-4 align-self-center">
         <ul class="list-inline text-center text-md-right mb-0">
+          <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top">
+            <%= link_to t('policy.privacy.title'), privacy_path, class: 'btn btn-links text-white' %>
+          </li>
           <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Facebook">
             <a class="text-white" href="#">
               <i class="fab fa-facebook"></i>
@@ -18,9 +21,9 @@
             </a>
           </li>
           <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Twitter">
-            <a class="text-white" target="_blank" href="https://twitter.com/0mny5_erb">
+            <%= link_to "https://twitter.com/0mny5_erb", class: "text-white", target: "_blank" do %>
               <i class="fab fa-twitter"></i>
-            </a>
+            <% end %>
           </li>
           <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="Dribbble">
             <a class="text-white" href="#">

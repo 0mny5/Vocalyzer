@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   root 'top#index'
 
+  get '/privacy', to: 'policy#privacy'
   get '/admin', to: 'admin/sessions#new'
   get '/auth/:provider/callback', to: 'sessions/twitter_sessions#create'
   post '/guest_login', to: 'sessions/guest_sessions#create'
