@@ -1,6 +1,5 @@
 ja:
   defaults:
-    url: 'URL'
     add_url: 'URL追加'
     remove_url: 'URL削除'
     search_word: '検索ワード'
@@ -22,6 +21,8 @@ ja:
     author_rights: '. All Rights Reserved'
     song_search: 'ボーカロイド名や曲名を入力してください'
     current_user: '%{name} さん'
+    project_title: 'タイトル* (*は必須項目です。URLは2曲以上入力してください。)'
+    song_url: 'URL*'
   top:
     index:
       content: 'Vocalyzer とは？'
@@ -34,13 +35,15 @@ ja:
       songle: 'songle API'
       songle_explain: 'songle APIによって、ボーカロイド楽曲を強力にサポート。'
       learn_more: 'もっと見る'
-  contact:
+  contacts:
     new:
       title: 'お問い合わせ'
-      name: 'お名前*'
+      name: 'お名前* (*は必須項目)'
       email: 'メールアドレス*'
       content: 'お問い合わせ内容*'
       submit: '送信'
+    create:
+      success: 'お問い合わせを送信しました'
   users:
     profiles:
       edit:
@@ -77,6 +80,7 @@ ja:
         title: '新規プロジェクト'
         project_title: 'タイトル'
         create: 'プロジェクト作成'
+        to_index: 'プロジェクト一覧へ'
       form:
         search: '検索'
         search_word: '検索ワード'

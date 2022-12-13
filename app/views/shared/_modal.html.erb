@@ -1,31 +1,62 @@
 <div class="modal fade" id="callUsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-      <%= form_with model: @contact, url: contacts_path do |f| %>
+      <%= form_with model: @contact, url: contacts_path, id: 'js-presence-check' do |f| %>
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle"><%= t('contact.new.title') %></h5>
+          <h5 class="modal-title" id="exampleModalLongTitle"><%= t('contacts.new.title') %></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <div class="js-error-messages m-3"></div>
         <div class="modal-body">
-          <div class="mb-2"><%= t('contact.new.name') %></div>
+          <div class="mb-2"><%= t('contacts.new.name') %></div>
           <div class="form-group mb-4">
-            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.text_field :name, class: 'form-control', id: 'js-name-field' %>
           </div>
-          <div class="mb-2"><%= t('contact.new.email') %></div>
+          <div class="mb-2"><%= t('contacts.new.email') %></div>
           <div class="form-group mb-4">
-            <%= f.text_field :email, class: 'form-control' %>
+            <%= f.text_field :email, class: 'form-control', id: 'js-email-field' %>
           </div>
-          <div class="mb-2"><%= t('contact.new.content') %></div>
+          <div class="mb-2"><%= t('contacts.new.content') %></div>
           <div class="form-group mb-4">
-            <%= f.text_area :content, class: 'form-control' %>
+            <%= f.text_area :content, class: 'form-control', id: 'js-content-field' %>
           </div>
           <div class="text-right">
-            <%= f.submit t('contact.new.submit'), class: 'btn btn-secondary' %>
+            <%= f.submit t('contacts.new.submit'), class: 'btn btn-secondary', onclick: "presenceCheck()" %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+<script>
+  function presenceCheck(){
+      event.preventDefault()
+      $('.js-error-messages').html('')
+      var val1 = $('#js-name-field').val()
+      var val2 = $('#js-email-field').val()
+      var val3 = $('#js-content-field').val()
+      if(val1 === ''){
+          $('.js-error-messages').append('<p style="color: red;">お名前が未入力です</p>')
+        }
+      if(val2 === ''){
+          $('.js-error-messages').append('<p style="color: red;">メールアドレスが未入力です</p>')
+        }
+      if(val3 === ''){
+          $('.js-error-messages').append('<p style="color: red;">お問い合わせ内容が未入力です</p>')
+        }
+      if(val1 != ''&&val2 != ''&&val3 != '') {
+          $.ajax({
+              type: "POST",
+              url: "/contacts",
+              data: {
+                  name: val1,
+                  email: val2,
+                  content: val3
+                }
+            })
+        }
+    }
+</script>

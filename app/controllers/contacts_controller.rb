@@ -7,9 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.create(contact_params)
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
-      redirect_to request.referer
-    else 
-      render :new
+      redirect_to request.referer, success: t('.success')
     end
   end
 
