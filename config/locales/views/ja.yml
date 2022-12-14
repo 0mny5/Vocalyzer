@@ -1,5 +1,7 @@
 ja:
   defaults:
+    og_title: 'Vocalyzer - top'
+    og_description: 'Vocaloid楽曲を比較、分析して快適な音楽ライフを送りませんか'
     add_url: 'URL追加'
     remove_url: 'URL削除'
     search_word: '検索ワード'
@@ -25,6 +27,7 @@ ja:
     song_url: 'URL*'
   top:
     index:
+      twitter_share: 'ツイート'
       content: 'Vocalyzer とは？'
       main: 'ようこそ。作曲支援ツールの新たな可能性へ・・・'
       explain: 'Vocaloid楽曲を構成する様々な要素を比較検討できる、 楽曲比較・分析サービスです。'
@@ -41,7 +44,7 @@ ja:
       main: '本webサイトは，ユーザーの個人情報について以下のとおりプライバシーポリシー（以下、「本ポリシー」という。）を定めます。本ポリシーは、当webサイトがどのような個人情報を取得し、どのように利用・共有するか、ユーザーがどのようにご自身の個人情報を管理できるかをご説明するものです。'
       method: '【１．個人情報の取得方法】'
       method_content: '当webサイトはユーザーがログインをするとき、Twitterアカウントの情報を取得させていただきます。
-お問い合わせフォームの送信時には、氏名・メールアドレスを取得させていただきます。'
+また、お問い合わせフォームの送信時には、氏名・メールアドレスを取得させていただきます。'
       measure: '【２．個人データを安全に管理するための措置】'
       measure_content: '当webサイトは個人情報を正確かつ最新の内容に保つよう努め、不正なアクセス・改ざん・漏えい・滅失及び毀損から保護するため、定期的に点検を行っています。'
       offer: '【３．個人データの第三者提供について】'
@@ -84,12 +87,9 @@ ja:
     projects:
       edit:
         title: 'プロジェクト編集'
-      destroy:
-        confirm: '本当に削除しますか？'
       show:
         title: '分析ページ'
         project_title: 'プロジェクト'
-        twitter_share: 'ツイート'
         set: 'セット'
         appear_search_form: '検索フォームを表示'
         search_word: '検索ワード'
@@ -102,6 +102,9 @@ ja:
         show: '分析ページ'
         edit: '編集'
         destroy: '削除'
+        confirm: '本当に削除しますか？'
+      destroy:
+        success: '%{title}を削除しました'
       new:
         title: '新規プロジェクト'
         project_title: 'タイトル'

@@ -8,15 +8,13 @@ class Sessions::GuestSessionsController < ApplicationController
     if guest_user
       log_in(guest_user)
 
-      flash[:success] = t('defaults.login_message', role: "#{User.human_attribute_name(:guest)}")
-      redirect_to new_users_project_path
+      redirect_to new_users_project_path, success: t('defaults.login_message', role: "#{User.human_attribute_name(:guest)}")
     end
   end
 
   def destroy
     log_out if logged_in?
 
-    flash[:success] = t('defaults.logout_message')
-    redirect_to root_path
+    redirect_to root_path, success: t('defaults.logout_message')
   end
 end

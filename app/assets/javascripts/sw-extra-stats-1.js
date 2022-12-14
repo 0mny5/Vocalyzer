@@ -150,34 +150,41 @@
 					f=c.querySelector(".next-chord");
 					return f.textContent=d.chord.next.name});
 
-				"chordEnter pause".split(" ").forEach((eventName)=>{
-					a.on(eventName,function(d){
+					a.on("chordEnter",function(d){
 						var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 						f=document.querySelector(".chord-effect");
+						var onC = new RegExp("^C[^#♭]?7?[^/A-G]*[ →]{3}F[^#♭]?7?[^/A-G]*")
 						var onCsharp = new RegExp("^C#[m]?7?[^/A-G]*[ →]{3}F#[m]?7?[^/A-G]*")
+						var onDflat = new RegExp("^D♭[m]?7?[^/A-G]*[ →]{3}G♭[m]?7?[^/A-G]*")
 						var onD = new RegExp("^D[^#♭]?7?[^/A-G]*[ →]{3}G[^#♭]?7?[^/A-G]*")
+						var onDsharp = new RegExp("^D#[m]?7?[^/A-G]*[ →]{3}G#[m]?7?[^/A-G]*")
+						var onEflat = new RegExp("^E♭[m]?7?[^/A-G]*[ →]{3}A♭[m]?7?[^/A-G]*")
 						var onE = new RegExp("^E[^#♭]?7?[^/A-G]*[ →]{3}A[^#♭]?7?[^/A-G]*")
 						var onF = new RegExp("^F[^#♭]?7?[^/A-G]*[ →]{3}B♭[m]?7?[^/A-G]*")
+						var onFsharp = new RegExp("^F#[m]?7?[^/A-G]*[ →]{3}B[m]?7?[^/A-G]*")
+						var onGflat = new RegExp("^E♭[m]?7?[^/A-G]*[ →]{3}B[m]?7?[^/A-G]*")
 						var onG = new RegExp("^G[^#♭]?7?[^/A-G]*[ →]{3}C[^#♭]?7?[^/A-G]*")
+						var onGsharp = new RegExp("^G#[m]?7?[^/A-G]*[ →]{3}C♯[m]?7?[^/A-G]*")
+						var onAflat = new RegExp("^A♭[m]?7?[^/A-G]*[ →]{3}D♭[m]?7?[^/A-G]*")
 						var onA = new RegExp("^A[^#♭]?7?[^/A-G]*[ →]{3}D[^#♭]?7?[^/A-G]*")
-						var dim = new RegExp("^[A-G#♭]*dim7?[ →]{3}[A-G][#♭]?")
-						array = [onCsharp, onD, onE, onF, onG, onA]
+						var onAsharp = new RegExp("^A#[m]?7?[^/A-G]*[ →]{3}D♯[m]?7?[^/A-G]*")
+						var onBflat = new RegExp("^B♭[m]?7?[^/A-G]*[ →]{3}E♭[m]?7?[^/A-G]*")
+						var onB = new RegExp("^B[^#♭]?7?[^/A-G]*[ →]{3}E[^#♭]?7?[^/A-G]*")
+						var dim = new RegExp("^[A-G][#♭]?dim7?[ →]{3}[A-G][#♭]?[mM]?7?")
+						array = [onC, onCsharp, onDflat, onD, onDsharp, onEflat, onE, onF, onFsharp, onGflat, onG, onGsharp, onAflat, onA, onAsharp, onB]
 						array.forEach((strongProgression)=>{
 						if(c.innerText.match(strongProgression)){
 							f.textContent = "強進行"
-						}
-						});
-						array.forEach((dim)=>{
+						};
 						if(c.innerText.match(dim)){
 							f.textContent = "増4度解決"
-						}
+						};
 						});
 					});
-				});
-				/* a.on("chordLeave",function(d){
+				a.on("chordLeave",function(d){
 					var f,c;c=document.querySelector(".sw-extra-stats-1 .chord-progression");
 					f=document.querySelector(".chord-effect")
-					return f.textContent = "-"}); */
+					return f.textContent = "-"});
 					
 				/* a.on("noteEnter",function(d){var c;c=document.querySelector(".sw-extra-stats-1 .note");
 				return c.textContent=d.note.pitch+" Hz"});
