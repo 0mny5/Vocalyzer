@@ -11,14 +11,9 @@
       </div>
     </div>
   </div>
-  <!-- End Promo Content -->
 </section>
-<!-- End Promo Block -->
-</header>
-<!-- End Header -->
 
 <main role="main">
-  <!-- Why We? -->
   <section class="u-content-space">
     <div class="container">
       <header class="text-center w-md-50 mx-auto mb-8">
@@ -26,7 +21,6 @@
         <p class="h5"><%= t('.explain') %></p>
       </header>
 
-      <!-- Row -->
       <div class="row justify-content-center text-center">
         <div class="col-lg-4 mb-5 mb-lg-0">
           <div class="display-4 text-primary mb-2">
@@ -58,9 +52,15 @@
           <% end %>
         </div>
       </div>
-      <!-- End Row -->
+    </div>
+    <div style="height: 30px;"></div>
+
+    <div class="container">
+      <div class="row justify-content-center m-3">
+        <%= link_to "https://twitter.com/share?url=#{ request.url }", target: '_blank', class: 'btn btn-secondary' do %>
+          <i class="fab fa-twitter mr-2" style='color: #3399FF;'></i><%= t('.twitter_share') %>
+      <% end %>
+      </div>
     </div>
   </section>
-  <!-- End Why We? -->
-
 </main>

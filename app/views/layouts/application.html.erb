@@ -6,6 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag('favicon.ico') %>
+    <!-- OGPの設定 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= t('defaults.og_title') %>">
+    <meta property="og:description" content="<%= t('defaults.og_description') %>">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="Vocalyzer">
+    <meta property="og:image" content="<%= asset_path ('og_image.png') %>">
+    <!-- Twitterカードの設定 -->
+    <meta name="twitter:card" content="summary_large_image">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'slick', media: 'all', 'data-turbolinks-track': 'reload' %>

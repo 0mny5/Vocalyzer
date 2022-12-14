@@ -45,7 +45,7 @@ class Users::ProjectsController < ApplicationController
   def destroy
     @project.destroy
 
-    redirect_to users_projects_url, notice: "Project was successfully destroyed."
+    redirect_to users_projects_url, success: t('.success', title: "#{@project.title}")
   end
 
   private

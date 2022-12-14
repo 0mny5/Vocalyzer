@@ -37,7 +37,7 @@
           <%= link_to t('.edit'), edit_users_project_path(project) %>
         </div>
         <div class="col-1 my-3">
-          <%= link_to t('.destroy'), users_project_path(project.uuid), data: { confirm: 'Are you sure?' }, method: :delete %>
+          <%= link_to t('.destroy'), users_project_path(project.uuid), data: { confirm: t('.confirm') }, method: :delete %>
         </div>
       </div>
     <% end %>
