@@ -103,6 +103,10 @@ ja:
         edit: '編集'
         destroy: '削除'
         confirm: '本当に削除しますか？'
+      update:
+        success: '%{title}を編集しました'
+      create:
+        success: '%{title}を作成しました'
       destroy:
         success: '%{title}を削除しました'
       new:
