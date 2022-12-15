@@ -38,7 +38,7 @@ class Users::ProjectsController < ApplicationController
       s.song_label = "Song#{idx}"
     end
 
-    if @project.save!
+    if @project.save
       redirect_to users_project_url(@project), success: t('.success', title: "#{@project.title}")
     else
       render :edit, status: :unprocessable_entity
