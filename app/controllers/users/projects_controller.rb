@@ -26,7 +26,7 @@ class Users::ProjectsController < ApplicationController
     end
 
     if @project.save
-      redirect_to users_project_url(@project)
+      redirect_to users_project_url(@project), success: t('.success', title: "#{@project.title}")
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,9 +34,12 @@ class Users::ProjectsController < ApplicationController
 
   def update
     @project.assign_attributes(project_params)
+    @project.songs.each.with_index(1) do |s, idx|
+      s.song_label = "Song#{idx}"
+    end
 
     if @project.save!
-      redirect_to users_project_url(@project)
+      redirect_to users_project_url(@project), success: t('.success', title: "#{@project.title}")
     else
       render :edit, status: :unprocessable_entity
     end
