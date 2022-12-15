@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   before_create -> { self.uuid = SecureRandom.uuid }
 
   validates :title, presence: true
-  validate :analyze_cannot_be_less_than_two, on: :create
+  validate :analyze_cannot_be_less_than_two
 
   private
 
