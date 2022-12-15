@@ -6,9 +6,6 @@ ruby '3.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
 
-# db
-gem 'sqlite3', '~> 1.4'
-
 # server
 gem 'puma', '~> 5.0'
 
@@ -46,6 +43,9 @@ gem 'omniauth-twitter2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # db
+  # gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
