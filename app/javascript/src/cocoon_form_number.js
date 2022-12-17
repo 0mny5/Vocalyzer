@@ -3,17 +3,14 @@ $(function() {
 
 	$('#songs').on('cocoon:after-insert', function() {
 		check_to_hide_or_show_add_link();
-		check_to_hide_or_show_remove_link();
 	});
 
 
 	$('#songs').on('cocoon:after-remove', function() {
 		check_to_hide_or_show_add_link();
-		check_to_hide_or_show_remove_link();
 	});
 
 	check_to_hide_or_show_add_link();
-	check_to_hide_or_show_remove_link();
 
 	function check_to_hide_or_show_add_link() {
 		if ($('#songs .nested-fields:visible').length >= 10) {

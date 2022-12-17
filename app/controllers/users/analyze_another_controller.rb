@@ -16,5 +16,4 @@ class Users::AnalyzeAnotherController < ApplicationController
   def set_project
     @project = current_user.projects.find(params[:project_uuid])
   end
-
 end

@@ -1,33 +1,33 @@
 <div class="container mt-2">
-      <%= form_with model: @song, url: select_another_songs_path, id: "js-select-song-2" do |f| %>
-  <div class="row mb-2">
-        <%= f.collection_select :id, @project.songs, :id, :song_label, { selected: @song.id }, { onchange: "selectSong($(this).val());" } %>
+  <%= form_with model: @song, url: select_another_songs_path, id: "js-select-song-2" do |f| %>
+    <div class="row mb-2">
+      <%= f.collection_select :id, @project.songs, :id, :song_label, { selected: @song.id }, { onchange: "selectSong($(this).val());" } %>
     </div>
-      <% end %>
-      <%= form_with model: @song, url: change_song_path(@song), id: "js-select-song" do |f| %>
-        <%= f.hidden_field :another_selectid %>
-  <div class="row mb-2">
-        <%= f.text_field :url, id: 'target-2', class: 'form-control' %>
+  <% end %>
+  <%= form_with model: @song, url: change_song_path(@song), id: "js-select-song" do |f| %>
+    <%= f.hidden_field :another_selectid %>
+    <div class="row mb-2">
+      <%= f.text_field :url, id: 'target-2', class: 'form-control', placeholder: t('.url') %>
     </div>
-  <div class="row mb-2">
-        <%= f.submit t('defaults.set'), class: 'btn btn-primary' %>
-      <% end %>
+    <div class="row mb-2">
+      <%= f.submit t('defaults.set'), class: 'btn btn-primary' %>
+    <% end %>
     </div>
-  </div>
+</div>
 
-  <div id="analyzer-2">
-    <div class="row my-3">
-      <div class="sw-extra-stats-1 col-6 d-inline-block">
-        <%= render 'song_stats' %>
-        <%= javascript_include_tag "sw-extra-stats-2.js" %>
-      </div>
-      </div>
-    <div class="row justify-content-center mt-1">
-      <div data-api="songle-widget-extra-module-2" data-url="<%= @song.url %>" id="songle-widget">
-      </div>
-      <script src="https://widget.songle.jp/v1/widgets.js"></script>
+<div id="analyzer-2">
+  <div class="row my-3">
+    <div class="sw-extra-stats-1 col-6 d-inline-block">
+      <%= render 'song_stats' %>
+      <%= javascript_include_tag "sw-extra-stats-2.js" %>
     </div>
   </div>
+  <div class="row justify-content-center mt-1">
+    <div data-api="songle-widget-extra-module-2" data-url="<%= @song.url %>" id="songle-widget">
+    </div>
+    <script src="https://widget.songle.jp/v1/widgets.js"></script>
+  </div>
+</div>
 </div>
 
 <script>

@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   layout 'admin/layouts/application'
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[edit update destroy]
 
   def new
     @admin = AdminUser.new
@@ -14,6 +14,11 @@ class Admin::UsersController < ApplicationController
   def update
     @user.update!(user_params)
     redirect_to admin_users_path
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to admin_users_path, success: t('.success', name: "#{@user.name}")
   end
 
   private

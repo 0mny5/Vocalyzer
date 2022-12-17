@@ -4,7 +4,7 @@ class Sessions::GuestSessionsController < ApplicationController
       uid: SecureRandom.hex(10),
       name: "#{User.human_attribute_name(:guest)}"
     )
-    
+
     if guest_user
       log_in(guest_user)
 

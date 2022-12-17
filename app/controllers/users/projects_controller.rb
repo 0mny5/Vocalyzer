@@ -26,20 +26,23 @@ class Users::ProjectsController < ApplicationController
     end
 
     if @project.save
-      redirect_to users_project_url(@project), success: t('.success', title: "#{@project.title}")
+      redirect_to users_project_url(@project)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
+    return render :edit unless (2..10).cover?(destroy_attribute_counts)
+
+
     @project.assign_attributes(project_params)
     @project.songs.each.with_index(1) do |s, idx|
       s.song_label = "Song#{idx}"
     end
 
     if @project.save
-      redirect_to users_project_url(@project), success: t('.success', title: "#{@project.title}")
+      redirect_to users_project_url(@project)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -59,5 +62,21 @@ class Users::ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, songs_attributes: [:id, :url, :song_label, :_destroy], song: [:id])
+  end
+
+  def destroy_attribute_counts
+    destroy_array = []
+    da2 = []
+
+    params[:project][:songs_attributes].each do |d|
+      @a = destroy_array.append(d.pop)
+    end
+    @a.each do |d|
+      if d[:_destroy] == "false"
+        @b = da2.append(d[:_destroy])
+      end
+    end
+
+    @b.size
   end
 end

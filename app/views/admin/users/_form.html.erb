@@ -1,7 +1,7 @@
-<div class="container">
-  <%= form_with model: [:admin, user] do |f| %>
-    <% if user.errors.any? %>
-      <div id="error_explanation">
+<%= form_with model: [:admin, user] do |f| %>
+  <div class="container">
+    <div id="error_explanation">
+      <% if user.errors.any? %>
         <h2><%= pluralize(user.errors.count, "error") %> prohibited this project from being saved:</h2>
 
         <ul>
@@ -9,8 +9,8 @@
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <div class="row my-3">
       <div class="col-2">
@@ -45,7 +45,8 @@
     </div>
 
     <div class="row justify-content-center my-3">
-      <%= f.submit t('.submit'), class: 'btn btn-secondary' %>
+      <%= f.submit t('.submit'), class: 'btn btn-secondary mr-3' %>
+      <%= link_to t('.destroy'), admin_user_path(@user), class: 'btn btn-danger ml-3', method: :delete %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
