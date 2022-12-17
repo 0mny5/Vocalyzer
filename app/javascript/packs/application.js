@@ -8,23 +8,21 @@ import "channels"
 import "jquery"
 import "bootstrap"
 import '@fortawesome/fontawesome-free/js/all'
-import "@nathanvda/cocoon"
 import "../stylesheets/application"
 
-// import "../src/capture.js"
-
 // template 'Stream'
-// import "../src/stream/global.js"
 import "../src/stream/top_animation.js"
 import '../src/stream/jquery.migrate.min.js'
 import '../src/stream/typed.min.js'
 import '../src/stream/slick.min.js'
-import '../src/cocoon_form_number.js'
+import '../src/stream/waypoint.min.js'
 import 'jquery-parallax.js'
 import 'typed.js'
 import 'slick-carousel'
 
-// puppeteer
+// cocoon
+import "@nathanvda/cocoon"
+import '../src/cocoon_form_number.js'
 
 Rails.start()
 ActiveStorage.start()

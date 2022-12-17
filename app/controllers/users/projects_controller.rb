@@ -35,10 +35,10 @@ class Users::ProjectsController < ApplicationController
   def update
     return render :edit unless (2..10).cover?(destroy_attribute_counts)
 
-
     @project.assign_attributes(project_params)
-    @project.songs.each.with_index(1) do |s, idx|
-      s.song_label = "Song#{idx}"
+    reset_index = @project.songs.reject {|key| key._destroy != false}
+    reset_index.each.with_index(1) do |s, idx|
+      s.song_label = "Song#{idx}" 
     end
 
     if @project.save
@@ -61,7 +61,7 @@ class Users::ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, songs_attributes: [:id, :url, :song_label, :_destroy], song: [:id])
+    params.require(:project).permit(:title, songs_attributes: [:id, :url, :song_label, :_destroy])
   end
 
   def destroy_attribute_counts

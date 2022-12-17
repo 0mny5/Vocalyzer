@@ -64,8 +64,16 @@ ActiveRecord::Schema.define(version: 2022_12_13_045951) do
     t.index ["uuid"], name: "index_projects_on_uuid"
   end
 
-# Could not dump table "songs" because of following StandardError
-#   Unknown type 'uuid' for column 'project_id'
+  create_table "songs", force: :cascade do |t|
+    t.text "url", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "song_label"
+    t.string "project_id"
+    t.boolean "selectstate_1", default: false
+    t.boolean "selectstate_2", default: false
+    t.index ["project_id"], name: "index_songs_on_project_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "uid"
