@@ -15,18 +15,18 @@
 
   <div class="analyze-field container">
     <div class="row m-3">
-    <div class="analyzer-1 d-inline-block">
-      <iframe src="<%= users_project_analyze_path(@project) %>" frameBorder="0" height="680px" width="500px"></iframe>
+      <div class="analyzer-1 d-inline-block">
+        <iframe src="<%= users_project_analyze_path(@project) %>" frameBorder="0" height="680px" width="500px"></iframe>
+      </div>
+
+      <div class="border-dark border-right" style="width: 20px;"></div>
+      <div style="width: 20px;"></div>
+
+
+      <div class="analyzer-2 float-right">
+        <iframe src="<%= users_project_analyze_another_path(@project) %>" frameBorder="0" height="680px" width="500px"></iframe>
+      </div>
     </div>
-
-    <div class="border-dark border-right" style="width: 20px;"></div>
-    <div style="width: 20px;"></div>
-
-
-    <div class="analyzer-2 float-right">
-      <iframe src="<%= users_project_analyze_another_path(@project) %>" frameBorder="0" height="680px" width="500px"></iframe>
-    </div>
-  </div>
   </div>
 
   <div class="container">

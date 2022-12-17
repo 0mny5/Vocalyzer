@@ -17,16 +17,4 @@ class Project < ApplicationRecord
       errors.add(:song, 'は２〜１０曲の範囲で登録が可能です')
     end
   end
-
-  def capture
-    Puppeteer.launch(headless: false) do |browser|
-      page = browser.new_page
-      page.goto(page.url(users_project_path(@project.uuid)))
-      page.wait_for_navigation do
-        page.click("#js-capture")
-      end
-      
-      page.screenshot(path: "/assets/images/capture_screen.png")
-    end
-  end
 end

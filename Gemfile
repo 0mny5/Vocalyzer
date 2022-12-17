@@ -23,6 +23,7 @@ gem 'puppeteer-ruby'
 gem 'ransack'
 gem 'rails-i18n', '~> 6.0'
 gem 'enum_help'
+gem 'meta-tags'
 
 # form
 gem 'cocoon'
@@ -45,7 +46,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   # db
-  # gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do

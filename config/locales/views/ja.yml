@@ -74,6 +74,12 @@ ja:
     create:
       success: 'お問い合わせを送信しました'
   users:
+    analyze:
+      show:
+        url:  '新しいURLを入力できます'
+    analyze_another:
+      show:
+        url:  '新しいURLを入力できます'
     profiles:
       edit:
         title: 'プロフィール編集'
@@ -125,7 +131,10 @@ ja:
         avatar: 'アイコン'
         role: '権限'
         search: '検索'
+      destroy:
+        success: '%{name}を削除しました'
       edit:
         title: 'ユーザー詳細'
       form:
         submit: '更新'
+        destroy: '削除'
