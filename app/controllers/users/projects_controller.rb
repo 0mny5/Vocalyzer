@@ -77,6 +77,6 @@ class Users::ProjectsController < ApplicationController
       end
     end
 
-    @b.size
+    @b&.size
   end
 end
