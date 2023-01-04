@@ -1,4 +1,4 @@
-# song_analyzer
+# Vocalyzer
 
 ■サービス概要  
 作曲をする上で、複数の参考楽曲の解析に手を焼いている方に、
@@ -65,5 +65,8 @@ README〜ER図: 8/27締め切り
 ■画面遷移図  
 https://www.figma.com/file/Q8FMdiMuV5wbSd5W2Jh7jV/SongAnalyzer%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=11%3A114
 
-■ER図
+■ER図  
 https://drive.google.com/file/d/1Hvgub2wISLcIGoDdv48CLrp4guIx55xB/view?usp=sharing
+
+■インフラ構成図  
+https://drive.google.com/file/d/14tHI_-hB_mPcfrmsvlm7D9qa-s2Itcmd/view?usp=share_link
